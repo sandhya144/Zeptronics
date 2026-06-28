@@ -12,8 +12,14 @@ const PORT = process.env.PORT || 3000;    // port --> server listen
 // middleware
 app.use(express.json());
 
+app.use(cors({
+    origin:'http://localhost:5173',   // frontend url
+    credentials: true,
+}))
+
 app.use('/api/v1/user', userRoute)
 app.use('/auth', authRoute)
+
 
 // http://localhost:8000/api/v1/user/register
 

@@ -6,8 +6,11 @@ import { verifyEmail } from "../emailVerify/verifyEmail.js";
 import { Session } from '../models/sessionmodel.js';
 import { sendOTPMail } from '../emailVerify/sendOTPMail.js';
 
+
 export const register = async(req, res)=>{
     try{
+        // console.log("BODY =>", req.body);
+
         const{firstName, lastName, email, password} = req.body;
         if(!firstName || !lastName || !email || !password){
             return res.status(400).json({
@@ -382,6 +385,3 @@ export const getUserById = async (req,res) =>{
         })
     }
 }
-
-
-
