@@ -1,37 +1,57 @@
+<div align="center">
+
 # ⚡ Zeptronics
 
-*🛒 A specialized full-stack electronics marketplace — not just another generic store.*
+> *🛒 "A specialized full-stack electronics marketplace — not just another generic store."*
+
+<br/>
+
+<div align="center">
+
+<!-- Frontend -->
+<img src="https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB">
+<img src="https://img.shields.io/badge/Redux_Toolkit-764ABC?style=flat&logo=redux&logoColor=white">
+<img src="https://img.shields.io/badge/Axios-5A29E4?style=flat&logo=axios&logoColor=white">
+<img src="https://img.shields.io/badge/React_Router-CA4245?style=flat&logo=reactrouter&logoColor=white">
+<img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white">
+<img src="https://img.shields.io/badge/Shadcn_UI-000000?style=flat&logo=shadcnui&logoColor=white">
 
 
-![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
-![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-764ABC?style=flat&logo=redux&logoColor=white)
-![Axios](https://img.shields.io/badge/Axios-5A29E4?style=flat&logo=axios&logoColor=white)
-![React Router](https://img.shields.io/badge/React_Router-CA4245?style=flat&logo=reactrouter&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
-![Shadcn UI](https://img.shields.io/badge/Shadcn_UI-000000?style=flat&logo=shadcnui&logoColor=white)
-[![Node.js](https://img.shields.io/badge/Node.js-43853D?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org/)
-[![Express](https://img.shields.io/badge/Express.js-404D59?style=flat-square)](https://expressjs.com/)
-![Multer](https://img.shields.io/badge/Multer-FF6F00?style=flat)
-![Nodemailer](https://img.shields.io/badge/Nodemailer-30B980?style=flat&logo=maildotru&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white)
-![MongoDB Atlas](https://img.shields.io/badge/MongoDB_Atlas-47A248?style=flat&logo=mongodb&logoColor=white)
-![JWT](https://img.shields.io/badge/JWT-000000?style=flat&logo=jsonwebtokens&logoColor=white)
-![bcrypt](https://img.shields.io/badge/bcrypt-3382CC?style=flat)
-![OTP](https://img.shields.io/badge/OTP-FF9800?style=flat)
-![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=flat&logo=cloudinary&logoColor=white)
-![Razorpay](https://img.shields.io/badge/Razorpay-0D6EFD?style=flat&logo=razorpay&logoColor=white)
-![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)
-![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat)
+<!-- Backend -->
+<img src="https://img.shields.io/badge/Node.js-43853D?style=flat&logo=node.js&logoColor=white">
+<img src="https://img.shields.io/badge/Express.js-404D59?style=flat">
+<img src="https://img.shields.io/badge/Multer-FF6F00?style=flat">
+<img src="https://img.shields.io/badge/Nodemailer-30B980?style=flat">
 
+<!-- Database & Auth -->
+<img src="https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white">
+<img src="https://img.shields.io/badge/MongoDB_Atlas-47A248?style=flat&logo=mongodb&logoColor=white">
+<img src="https://img.shields.io/badge/JWT-000000?style=flat&logo=jsonwebtokens&logoColor=white">
+<img src="https://img.shields.io/badge/bcrypt-3382CC?style=flat">
+<img src="https://img.shields.io/badge/OTP-FF9800?style=flat">
 
+<!-- Services -->
+<img src="https://img.shields.io/badge/Cloudinary-3448C5?style=flat&logo=cloudinary&logoColor=white">
+<img src="https://img.shields.io/badge/Razorpay-0D6EFD?style=flat&logo=razorpay&logoColor=white">
+
+</div>
+
+<br/>
 
 **[🚀 Get Started](#-installation)** · **[✨ Features](#-features)** · **[🏗️ Architecture](#%EF%B8%8F-architecture)** · **[📡 API Reference](#-api-reference)** · **[🤝 Contributing](#-contributing)**
+
+
+</div>
+
 
 ---
 
 ## 😤 The Problem
 
-Generic e-commerce platforms force electronics shoppers to wade through irrelevant categories and clunky product comparisons. Finding the right laptop, headphone, or smart device by brand, spec, or price shouldn't feel like a scavenger hunt. Zeptronics is built specifically for electronics — the filtering, the categories, the admin tools — so nothing gets in the way of buying or selling the right gadget.
+Generic e-commerce platforms force electronics shoppers to wade through irrelevant categories and clunky product comparisons. 
+Finding the right laptop, headphone, or smart device by brand, spec, or price shouldn't feel like a scavenger hunt. 
+
+Zeptronics is built specifically for electronics — the filtering, the categories, the admin tools — so nothing gets in the way of buying or selling the right gadget.
 
 ---
 ## 📖 About
