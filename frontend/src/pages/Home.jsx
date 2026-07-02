@@ -1,10 +1,12 @@
 import Hero from '@/components/Hero'
 import React from 'react'
+import Features from '@/components/features'
 
 const Home = () => {
   return (
     <div>
       <Hero/>
+      <Features/>
     </div>
   )
 }

@@ -1,39 +1,85 @@
 import { ShoppingCart } from 'lucide-react'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Button } from './ui/button'
+import { useDispatch, useSelector } from 'react-redux'
+import { logout, setUser } from '../redux/userslice'
+import axios from 'axios';
+import { toast } from "sonner";
 
 
 const Navbar = () => {
-  const user = true
+  const {user} = useSelector((store)=> store.user)
+ 
+
+  const accessToken = localStorage.getItem('accessToken')
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const logoutHandler = async() => {
+    // logic here
+    try{
+        const res = await axios.post('http://localhost:8000/api/v1/user/logout',{},{
+            headers:{
+              Authorization:`Bearer ${accessToken}`
+            }
+
+        });
+          if(res.data.success){
+            dispatch(logout());
+            toast.success(res.data.message)
+          }
+
+    } catch(error){
+      console.log(error);
+    }
+  }
+
   return (
     <header className='bg-pink-50 fixed w-full z-20 border-b border-pink-200'>
-      <div className='max-w-7xl mx-auto flex justify-between items-center py-3'>
-      {/* logo section  */}
+      <div className='max-w-7xl mx-auto px-6 flex justify-between items-center py-3'>
+        
+        {/* Logo Section */}
+        <div>
+          <img src='/Ekart (1).svg' alt='Zeptronics Logo' className='w-38 object-contain rounded-4xl' />
+        </div>
+       
+        {/* Nav Section */}
+        <nav className='flex gap-8 items-center'>
+          
+          {/* Properly structured list */}
+          <ul className='flex gap-7 items-center text-xl font-semibold'>
+            <li>
+              <Link to={'/'} className='text-[#1E85C7] text-xl'>Home</Link>
+            </li>
+            <li>
+              <Link to={'/products'} className='text-[#1E85C7] text-xl'>Products</Link>
+            </li>
+            {user && (
+              <li>
+                <Link to={'/profile'} className='text-[#1E85C7]'>Hello, {user.firstName} </Link>
+              </li>
+            )}
+          </ul>
+        
+          {/* Cart Icon with inline-flex to anchor the badge correctly */}
+          <Link to={'/cart'} className='relative inline-flex items-center justify-center p-1 text-blue-900'> 
+            <ShoppingCart className='w-6 h-6' />
+            <span className='bg-linear-to-br from-[#2A6BE6] via-[#1E85C7] to-[#0EA5B4] rounded-full absolute text-white text-xs -top-1 -right-2 px-1.5 min-w-5 h-5 flex items-center justify-center font-bold'>
+              0
+            </span>
+          </Link>
 
-      <div>
-        <img src="/Ekart.png" alt='' className='w-[140px] rounded-4xl' />
-      </div>
-      {/* nav section */}
-      <nav className='flex gap-10 justify-between items-center'>
-        <ul className='flex gap-7 items-center text-xl font-semibold'>
-          <Link to={'/'} className='text-blue-900'> Home </Link>
-          <Link to={'/products'} className='text-blue-900' > Products </Link>
-          {
-            user && <Link to={'/profile'} className='text-blue-900' ><li> Hello User </li></Link>
-          }
-        </ul>
-            <Link to={'/cart'} className='relative'> 
-            <ShoppingCart/>
-            <span className='bg-blue-900 rounded-full absolute text-white -top-3 -right-5 px-2'>0</span>
-            </Link>
-            {
-              user ? <Button className='bg-blue-900 text-white cursor-pointer'>Logout</Button> : <Button className='bg-linear-to-tl from-blue-600 to-purple-600 text-white cursor-pointer' >Login</Button>
-            }
-      </nav>
+          {/* Action Button */}
+          {user ? (
+            <Button onClick={logoutHandler} className='bg-linear-to-br from-[#2A6BE6] via-[#1E85C7] to-[#0EA5B4] text-white cursor-pointer px-4 py-2 rounded-md'>Logout</Button>
+          ) : (
+            <Button onClick={()=> navigate('/login')} className='bg-linear-to-br from-[#2A6BE6] via-[#1E85C7] to-[#0EA5B4] text-white cursor-pointer px-4 py-2 rounded-md'>Login</Button>
+          )}
+        </nav>
+
       </div>
     </header>
-
   )
 }
 
