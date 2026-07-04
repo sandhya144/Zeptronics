@@ -255,7 +255,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-pink-100">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <Card className="w-full max-w-sm">
         <CardHeader>
           <CardTitle>Login your account</CardTitle>
@@ -313,7 +313,7 @@ const Login = () => {
         <CardFooter className="flex flex-col gap-2">
           <Button
             onClick={submitHandler}
-            className="w-full bg-pink-600 hover:bg-pink-500 cursor-pointer"
+            className="w-full bg-linear-to-br from-[#2A6BE6] via-[#1E85C7] to-[#0EA5B4] cursor-pointer"
           >
             {loading ? (
               <>
@@ -332,7 +332,7 @@ const Login = () => {
               window.open("http://localhost:8000/auth/google", "_self")
             }
           >
-            <img src={google} alt="Google" className="w-10" />
+            <img src={google} alt="Google" className="w-4.5" />
             Login with Google
           </Button>
 
@@ -344,7 +344,7 @@ const Login = () => {
               Don't have an account?{" "}
               <Link
                 to="/signup"
-                className="text-pink-500 hover:underline"
+                className="text-[#1E85C7] hover:underline"
               >
                 Signup
               </Link>

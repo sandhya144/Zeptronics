@@ -36,7 +36,7 @@ const Navbar = () => {
   }
 
   return (
-    <header className='bg-pink-50 fixed w-full z-20 border-b border-pink-200'>
+    <header className='bg-gray-50 fixed w-full z-20 border-b border-blue-300'>
       <div className='max-w-7xl mx-auto px-6 flex justify-between items-center py-3'>
         
         {/* Logo Section */}

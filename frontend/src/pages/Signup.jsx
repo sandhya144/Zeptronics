@@ -66,7 +66,7 @@ const signup = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-pink-100">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <Card className="w-full max-w-sm">
         <CardHeader>
           <CardTitle>Create your account</CardTitle>
@@ -152,7 +152,7 @@ const signup = () => {
           <Button
             onClick={submitHandler}
             type="submit"
-            className="w-full cursor-pointer bg-pink-600 hover:bg-pink-500"
+            className="w-full cursor-pointer bg-linear-to-br from-[#2A6BE6] via-[#1E85C7] to-[#0EA5B4] hover:bg-pink-500"
           >
             {loading ? (
               <>
@@ -170,7 +170,7 @@ const signup = () => {
             variant="outline"
             className="w-full"
           >
-            <img src={google} alt="" className="w-10" />
+            <img src={google} alt="" className="w-4.5" />
             Login with Google
           </Button>
 
@@ -182,7 +182,7 @@ const signup = () => {
               Already have an account?{" "}
               <Link
                 to={"/login"}
-                className="hover:underline cursor-pointer text-pink-400"
+                className="hover:underline cursor-pointer text-[#1E85C7]"
               >
                 Login
               </Link>

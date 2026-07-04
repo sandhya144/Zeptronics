@@ -27,10 +27,10 @@ const Profile = () => {
                   <img
                     src={userImage}
                     alt="profile"
-                    className="w-32 h-32 rounded-full object-cover border-4 border-pink-600"
+                    className="w-32 h-32 rounded-full object-cover border-4 border-[#0EA5B4]"
                   />
 
-                  <Label className="mt-4 cursor-pointer rounded-lg bg-pink-600 px-4 py-2 text-white hover:bg-pink-700">
+                  <Label className="mt-4 cursor-pointer rounded-lg bg-linear-to-br from-[#2A6BE6] via-[#1E85C7] to-[#0EA5B4] px-4 py-2 text-white hover:bg-pink-700">
                     Change Picture
                     <Input
                       type="file"
@@ -125,7 +125,7 @@ const Profile = () => {
 
                   <Button
                     type="submit"
-                    className="w-full mt-4 bg-pink-600 hover:bg-pink-700"
+                    className="w-full mt-4 bg-linear-to-br from-[#2A6BE6] via-[#1E85C7] to-[#0EA5B4] hover:grayscale-50"
                   >
                     Update Profile
                   </Button>
