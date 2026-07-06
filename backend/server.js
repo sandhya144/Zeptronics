@@ -3,6 +3,7 @@ import 'dotenv/config';
 import connectDB from './database/db.js';
 import userRoute from './routes/userRoutes.js'
 import authRoute from './routes/authRoutes.js'
+import productRoute from './routes/productRoutes.js'
 import cors from 'cors'
 import "./config/passport.js";
 
@@ -19,6 +20,7 @@ app.use(cors({
 
 app.use('/api/v1/user', userRoute)
 app.use('/auth', authRoute)
+app.use('/api/v1/product', productRoute)
 
 
 // http://localhost:8000/api/v1/user/register

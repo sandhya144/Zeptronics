@@ -76,7 +76,11 @@ const Profile = () => {
 
       if(res.data.success){
           toast.success(res.data.message)
-          dispatch(setUser(res.data.user)) // setuser--> updateduser store me jake set ho jayega 
+          dispatch(setUser({      // setuser--> updateduser store me jake set ho jayega 
+            user: res.data.user,
+            accessToken: localStorage.getItem("accessToken"), 
+          })
+         ) 
         }
 
     } catch(error){

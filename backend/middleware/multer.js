@@ -8,3 +8,5 @@ export const singleUpload = multer({storage}).single("file")
 
 // multiple upload
 export const multipleUpload = multer({storage}).array("files",6)
+
+
