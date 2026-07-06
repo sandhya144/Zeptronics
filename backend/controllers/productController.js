@@ -55,6 +55,8 @@ export const addProduct = async (req, res) => {
   }
 };
 
+
+
 export const getAllProduct = async (req, res) => {
   try {
     const product = await Product.find();
