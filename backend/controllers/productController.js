@@ -7,6 +7,7 @@ export const addProduct = async (req, res) => {
   try {
     const { productName, productDesc, productPrice, category, brand } =
       req.body;
+
     const userId = req.id;
     if (!productName || !productDesc || !productPrice || !category || !brand) {
       return res.status(400).json({
@@ -32,6 +33,8 @@ export const addProduct = async (req, res) => {
         });
       }
     }
+
+
     //create a product in DB
     const newProduct = await Product.create({
       userId,
@@ -47,6 +50,8 @@ export const addProduct = async (req, res) => {
       message: "Product added successfully.",
       product: newProduct,
     });
+
+
   } catch (error) {
     return res.status(500).json({
       success: false,
@@ -54,8 +59,6 @@ export const addProduct = async (req, res) => {
     });
   }
 };
-
-
 
 export const getAllProduct = async (req, res) => {
   try {
@@ -69,7 +72,7 @@ export const getAllProduct = async (req, res) => {
     }
     return res.status(200).json({
       success: true,
-      product,
+      products: product,
     });
   } catch (error) {
     return res.status(500).json({
@@ -180,7 +183,8 @@ export const updateProduct = async (req, res) => {
     product.productPrice = productPrice || product.productPrice;
     product.category = category || product.category;
     product.brand = brand || product.brand;
-    product.productImg = productImg || product.productImg;
+    // product.productImg = productImg || product.productImg;
+     product.productImg = updatedImg;
    
     await product.save()
 
