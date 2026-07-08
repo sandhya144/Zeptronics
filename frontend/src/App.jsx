@@ -11,6 +11,7 @@ import Footer from './components/footer'
 import AuthSuccess from './pages/AuthSuccess'
 import Profile from './pages/Profile'
 import Products from './pages/Products'
+import Cart from './pages/Cart'
 
 
 
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
   {
     path: 'products',
     element: <>  <Navbar/> <Products/>  </>
+  },
+  {
+    path: 'cart',
+    element: <>  <Navbar/> <Cart/>  </>
   },
 ])
 
