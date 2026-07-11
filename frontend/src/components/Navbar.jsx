@@ -6,34 +6,57 @@ import { useDispatch, useSelector } from 'react-redux'
 import { logout, setUser } from '../redux/userslice'
 import axios from 'axios';
 import { toast } from "sonner";
+import { persistor } from '../redux/store'
+import { clearCart } from '../redux/productSlice'
 
 
 const Navbar = () => {
   const {user} = useSelector((store)=> store.user)
  
-
+  const {cart} = useSelector((store) => store.product)
   const accessToken = localStorage.getItem('accessToken')
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const logoutHandler = async() => {
-    // logic here
-    try{
-        const res = await axios.post('http://localhost:8000/api/v1/user/logout',{},{
-            headers:{
-              Authorization:`Bearer ${accessToken}`
-            }
+  // const logoutHandler = async() => {
+  //   // logic here
+  //   try{
+  //       const res = await axios.post('http://localhost:8000/api/v1/user/logout',{},{
+  //           headers:{
+  //             Authorization:`Bearer ${accessToken}`
+  //           },
 
-        });
-          if(res.data.success){
-            dispatch(logout());
-            toast.success(res.data.message)
-          }
+  //       });
 
-    } catch(error){
-      console.log(error);
+  //         if(res.data.success){
+  //           dispatch(logout());
+  //           toast.success(res.data.message)
+  //         }
+
+  //   } catch(error){
+  //     console.log(error);
+  //   }
+  // }
+
+
+  const logoutHandler = async () => {
+  try {
+    const res = await axios.post('http://localhost:8000/api/v1/user/logout', {}, {
+      headers: { Authorization: `Bearer ${accessToken}` }
+    });
+
+    if (res.data.success) {
+      dispatch(logout());          // clear user slice
+      dispatch(clearCart());       // clear cart slice
+      localStorage.removeItem('accessToken');   // ← THIS LINE — you're still missing it 
+      toast.success(res.data.message);
+      navigate('/login');          // avoid stale UI on current page
     }
+  } catch (error) {
+    console.log(error);
   }
+}
+
 
   return (
     <header className='bg-gray-50 fixed w-full z-20 border-b border-blue-300'>
@@ -66,7 +89,7 @@ const Navbar = () => {
           <Link to={'/cart'} className='relative inline-flex items-center justify-center p-1 text-blue-900'> 
             <ShoppingCart className='w-6 h-6' />
             <span className='bg-linear-to-br from-[#2A6BE6] via-[#1E85C7] to-[#0EA5B4] rounded-full absolute text-white text-xs -top-1 -right-2 px-1.5 min-w-5 h-5 flex items-center justify-center font-bold'>
-              0
+              { cart?.items?.length || 0 }
             </span>
           </Link>
 

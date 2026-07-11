@@ -1,6 +1,8 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import userSlice from "./userslice"
 import productReducer from "./productSlice";
+import { persistStore } from 'redux-persist'
+
 
 import {
   persistReducer,
@@ -23,6 +25,7 @@ const persistConfig = {
   key: 'Ekart',
   version: 1,
   storage: storage.default,
+  whitelist: ["user"],
 }
 
 const rootReducer = combineReducers({
@@ -42,5 +45,5 @@ const store = configureStore({
     }),
 })
 
-
+export const persistor = persistStore(store);
 export default store

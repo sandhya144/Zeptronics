@@ -1,14 +1,20 @@
 import { Cart } from "../models/cartModel.js";
+import { Product } from "../models/productModel.js";
 
 export const getCart = async (req, res) => {
   try {
+       console.log("req.id =", req.id);
     const userId = req.id;
     const cart = await Cart.findOne({ userId }).populate("items.productId");
+
+    console.log("Cart found =", JSON.stringify(cart, null, 2));
 
     if (!cart) {
       return res.json({ success: true, cart: [] });
     }
-    res.status(200).json({ success: true, cart });
+
+    res.status(200).json({ success: true, cart, });
+
   } catch (error) {
     return res.status(500).json({
       success: false,
@@ -49,7 +55,7 @@ export const addToCart = async (req, res) => {
       );
       if (itemIndex > -1) {
         // if product exists -> just increase quantity
-        cart.items[itemIndex].quantity == 1;
+        cart.items[itemIndex].quantity += 1;
       } else {
         cart.items.push({
           productId,
@@ -60,11 +66,15 @@ export const addToCart = async (req, res) => {
 
       // recalculates total price
       cart.totalPrice = cart.items.reduce(
-        (acc, item) => acc + item.price * item.quantity,
+        (acc, item) => acc + item.price * item.quantity, 0
       );
     }
     // save updated cart
     await cart.save();
+
+console.log(cart);
+console.log(cart.totalPrice);
+console.log(typeof cart.totalPrice);
 
     // populate product details before sending response
     const populatedCart = await Cart.findById(cart.id).populate(
@@ -87,7 +97,7 @@ export const addToCart = async (req, res) => {
 export const updateQuantity = async (req, res) => {
   try {
     const userId = req.id;
-    const { productId } = req.body;
+    const { productId, type } = req.body;
 
     let cart = await Cart.findOne({ userId });
     // check that cart exists or not
@@ -98,8 +108,7 @@ export const updateQuantity = async (req, res) => {
       });
     // we r checking that is added items is already present in our cart or not ?
     const item = cart.items.find(
-      (item) => item.productId.toString() === productId,
-    );
+      (item) => item.productId.toString() === productId);
 
     if (!item)
       return res.status(400).json({
@@ -154,6 +163,8 @@ export const removeCart = async (req, res) => {
     );
 
     await cart.save();
+    cart = await cart.populate("items.productId");
+
     res.status(200).json({
       success: true,
       cart,
