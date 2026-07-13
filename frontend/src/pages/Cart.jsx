@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import userlogo  from '../assets/user1.jpg'
 import { Button } from '@/components/ui/button';
@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { setCart } from '@/redux/productSlice';
+import { toast } from 'sonner';
 
 const Cart = () => {
   const {cart} = useSelector((store)=> store.product)
@@ -23,6 +24,26 @@ const Cart = () => {
   const dispatch = useDispatch();
   const API = "http://localhost:8000/api/v1/cart"
   const accessToken = localStorage.getItem("accessToken")
+
+  const loadCart = async () => {
+    try{
+      const res = await axios.get(API, {
+        headers:{
+          Authorization: `Bearer ${accessToken}`
+        }
+      })
+      if(res.data.success){
+        dispatch(setCart(res.data.cart));
+      }
+
+    } catch (error){
+      console.log(error);
+    }
+  }
+
+  useEffect(() =>{
+    loadCart()
+  }, [dispatch])
 
   const handleUpdateQuantity = async(productId , type) =>{
         try{
@@ -39,7 +60,22 @@ const Cart = () => {
         }
   }
 
-
+const handleRemove = async(productId) => {
+  try{
+    const res = await axios.delete(`${API}/remove`,{
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      },
+      data:{productId}
+    });
+    if(res.data.success){
+      dispatch(setCart(res.data.cart))
+      toast.success('Product removed successfully.')
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
 
   return (
     <div className='pt-20 bg-gray-50 min-h-screen'>
@@ -67,7 +103,7 @@ const Cart = () => {
                     <Button onClick={()=> handleUpdateQuantity(product.productId._id,'increase')} variant='outline'>+</Button>
                   </div>
                   <p>₹{(product?.productId?.productPrice)*(product?.quantity)}</p>
-                  <p className='flex text-red-500 items-center gap-1 cursor-pointer'><Trash2 className='w-4 h-4'/>Remove</p>
+                  <p onClick={() => handleRemove(product?.productId?._id)} className='flex text-red-500 items-center gap-1 cursor-pointer'><Trash2 className='w-4 h-4'/>Remove</p>
                 </div>
               </Card>
               })}   

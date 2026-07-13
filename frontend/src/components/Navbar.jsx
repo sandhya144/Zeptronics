@@ -14,29 +14,14 @@ const Navbar = () => {
   const {user} = useSelector((store)=> store.user)
  
   const {cart} = useSelector((store) => store.product)
+
   const accessToken = localStorage.getItem('accessToken')
+
+  const admin = user?.role === "admin" ? true : false;
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // const logoutHandler = async() => {
-  //   // logic here
-  //   try{
-  //       const res = await axios.post('http://localhost:8000/api/v1/user/logout',{},{
-  //           headers:{
-  //             Authorization:`Bearer ${accessToken}`
-  //           },
-
-  //       });
-
-  //         if(res.data.success){
-  //           dispatch(logout());
-  //           toast.success(res.data.message)
-  //         }
-
-  //   } catch(error){
-  //     console.log(error);
-  //   }
-  // }
 
 
   const logoutHandler = async () => {
@@ -81,6 +66,12 @@ const Navbar = () => {
             {user && (
               <li>
                 <Link to={`/profile/${user._id}`} className='text-[#1E85C7]'>Hello, {user.firstName} </Link>
+              </li>
+            )}
+
+            {admin && (
+              <li>
+                <Link to={`/dashboard/sales`} className='text-[#1E85C7]'>Dashboard</Link>
               </li>
             )}
           </ul>
