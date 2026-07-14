@@ -10,7 +10,7 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Verify from './pages/Verify'
 import VerifyEmail from './pages/VerifyEmail'
-import Footer from './components/footer'
+import Footer from './components/Footer'
 import AuthSuccess from './pages/AuthSuccess'
 import Profile from './pages/Profile'
 import Products from './pages/Products'
@@ -70,12 +70,12 @@ const router = createBrowserRouter([
   },
   {
     path: 'dashboard',
-    element: (<ProtectedRoute adminOnly={true}> <Dashboard/> </ProtectedRoute> ),
+    element: <ProtectedRoute adminOnly={true}> <Navbar/> <Dashboard/> </ProtectedRoute> ,
     children: [
-      {
-      index: true,
-      element: <AdminSales />
-    },
+    //   {
+    //   index: true,
+    //   element: <AdminSales />
+    // },
       {
         path:"sales",
         element: <AdminSales/>

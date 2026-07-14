@@ -1,11 +1,11 @@
 import React from 'react'
 
-const showUserOrders = () => {
+const ShowUserOrders = () => {
   return (
     <div>
-      
+      ShowUserOrders
     </div>
   )
 }
 
-export default showUserOrders
+export default ShowUserOrders

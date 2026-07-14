@@ -1,11 +1,11 @@
 import React from 'react'
 
-const userInfo = () => {
+const UserInfo = () => {
   return (
     <div>
-      
+      UserInfo
     </div>
   )
 }
 
-export default userInfo
+export default UserInfo
