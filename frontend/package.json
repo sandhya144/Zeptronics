@@ -23,6 +23,7 @@
     "radix-ui": "^1.6.1",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
+    "react-medium-image-zoom": "^5.4.8",
     "react-redux": "^9.3.0",
     "react-router-dom": "^7.17.0",
     "redux-persist": "^6.0.0",
