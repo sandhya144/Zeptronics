@@ -15,22 +15,29 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { setProducts } from "@/redux/productSlice";
 import axios from "axios";
+import { Loader2 } from "lucide-react";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
 
 const AddProduct = () => {
   const accessToken = localStorage.getItem("accessToken");
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false)
+
+  const {products} = useSelector(store => store.product)
 
   const [productData, setProductData] = useState({
     productName: "",
     productPrice: "",
     productDesc: "",
-    ProductImg: "",
+    productImg: [],
     brand: "",
     category: "",
   });
+
+
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -46,19 +53,21 @@ const AddProduct = () => {
     formData.append("productName", productData.productName);
     formData.append("productPrice", productData.productPrice);
     formData.append("productDesc", productData.productDesc);
-    formData.append("Category", productData.category);
+    formData.append("category", productData.category);
     formData.append("brand", productData.brand);
+    // formData.append("image")
 
-    if (productData.ProductImg.length === 0) {
+    if (productData.productImg.length === 0) {
       toast.error("Please select atleast one image");
       return;
     }
-    productData.productData.forEach((img) => {
+    productData.productImg.forEach((img) => {
       formData.append("files", img);
     });
     try {
+      setLoading(true)
       const res = await axios.post(
-        `htttp://localhost:8000/api/v1/product/add`,
+        `http://localhost:8000/api/v1/product/add`,
         formData,
         {
           headers: {
@@ -67,11 +76,13 @@ const AddProduct = () => {
         },
       );
       if (res.data.success) {
-        dispatch(setProducts([...Products, res.data.product]));
+        dispatch(setProducts([...products, res.data.product]));
         toast.success(res.data.message);
       }
     } catch (error) {
       console.log(error);
+    } finally{
+      setLoading(false)
     }
   };
 
@@ -101,7 +112,7 @@ const AddProduct = () => {
               <Label>Price</Label>
               <Input
                 type="number"
-                name="productName"
+                name="productPrice"
                 value={productData.productPrice}
                 onChange={handleChange}
                 placeholder="Eg: Iphone"
@@ -126,7 +137,7 @@ const AddProduct = () => {
                 <Label>Category</Label>
                 <Input
                   type="text"
-                  name="Category"
+                  name="category"
                   value={productData.category}
                 onChange= {handleChange}
                   placeholder="Eg: Mobile"
@@ -155,10 +166,12 @@ const AddProduct = () => {
 
           <CardFooter className="flex-col gap-2">
             <Button 
+            disabled={loading}
             onClick={submitHandler}
-            className="w-full bg-linear-to-br from-[#2A6BE6] via-[#1E85C7] to-[#0EA5B4] cursor-pointer" type="submit">
-              {" "}
-              Add Product
+            className=" mt-7 w-full bg-linear-to-br from-[#2A6BE6] via-[#1E85C7] to-[#0EA5B4] cursor-pointer" type="submit">
+              {
+                loading ? <span className="flex gap-1 items-center"><Loader2 className="animate-spin"/>Please Wait </span> : 'Add Product'
+              }
             </Button>
           </CardFooter>
         </CardContent>
