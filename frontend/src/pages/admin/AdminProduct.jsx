@@ -196,7 +196,7 @@ const AdminProduct = () => {
         return (
           <Card key={index}>
             <div className="flex items-center justify-between">
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-3 items-center">
                 <img
                   src={product?.productImg[0].url}
                   alt=""
@@ -206,13 +206,15 @@ const AdminProduct = () => {
                   {product?.productName}
                 </h1>
               </div>
+
+              <div className="flex items-center gap-20 mr-8">
               <h1 className="font-semibold text-gray-800">
                 {product?.productPrice}
               </h1>
-              <div className="flex gap-3">
+              <div className="flex gap-4">
                 <Dialog open={open} onOpenChange={setOpen}>
                   <DialogTrigger asChild>
-                    <Edit
+                    <Edit 
                       onClick={() => {
                         (setOpen(true), setEditProduct(product));
                       }}
@@ -323,6 +325,7 @@ const AdminProduct = () => {
                 </AlertDialog>
 
               </div>
+            </div>
             </div>
           </Card>
         );
