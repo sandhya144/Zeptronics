@@ -93,8 +93,8 @@ const handleRemove = async(productId) => {
                   <img src={product?.productId?.productImg?.[0]?.url || userlogo} alt="" className='w-25 h-25'/>
                   <div className='w-70'>
                     {/* product name  */}
-                    <h1 className='font-semibold truncate' >{product?.productId?.productName}</h1> 
-                    <p>₹{product?.productId?.productPrice}</p>      
+                    <h1 className='font-semibold truncate ml-5' >{product?.productId?.productName}</h1> 
+                    <p className='ml-5'>₹{product?.productId?.productPrice}</p>      
                   </div>
                   </div>
                   <div className='flex gap-5 items-center'>

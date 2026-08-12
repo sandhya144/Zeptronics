@@ -298,7 +298,7 @@ const AdminProduct = () => {
                         <Button variant="outline">Cancel</Button>
                       </DialogClose>
 
-                      <Button onClick={handleSave}>Save</Button>
+                      <Button className="bg-linear-to-br from-[#2A6BE6] via-[#1E85C7] to-[#0EA5B4]" onClick={handleSave}>Save</Button>
                     </DialogFooter>
                   </DialogContent>
                 </Dialog>
@@ -314,12 +314,12 @@ const AdminProduct = () => {
                       </AlertDialogTitle>
                       <AlertDialogDescription>
                         This action cannot be undone. This will permanently
-                        delete your account and remove your data from our servers.
+                        delete this item and remove its data from our servers.
                       </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
                       <AlertDialogCancel>Cancel</AlertDialogCancel>
-                      <AlertDialogAction onClick={()=>deleteProductHandler(product._id)}>Continue</AlertDialogAction>
+                      <AlertDialogAction className="bg-linear-to-br from-[#2A6BE6] via-[#1E85C7] to-[#0EA5B4]" onClick={()=>deleteProductHandler(product._id)}>Continue</AlertDialogAction>
                     </AlertDialogFooter>
                   </AlertDialogContent>
                 </AlertDialog>
