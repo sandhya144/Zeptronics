@@ -1,5 +1,4 @@
 
-
 import React, { useEffect } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -101,7 +100,7 @@ const router = createBrowserRouter([
         element: <AdminUsers/>
       },
       {
-        path:"/dashboard/users/:id",
+        path:"users/:id",
         element: <UserInfo/>
       },
     ]

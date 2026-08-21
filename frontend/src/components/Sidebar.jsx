@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 
 const Sidebar = () => {
   return (
-    <div className='hidden fixed md:block border-r bg-gray-100 border-[#0EA5B4] x-10 w-[300px] p-10 space-y-2 h-screen'>
+    <div className='hidden fixed left-0 top-0 md:block border-r bg-gray-100 border-[#0EA5B4]  w-[300px] p-10 space-y-2 h-screen'>
       <div className='text-center pt-10 px-3 space-y-2'>
         <NavLink to='/dashboard/sales' className={({isActive}) => `text-xl ${isActive ? " bg-linear-to-br from-[#2A6BE6] via-[#1E85C7] to-[#0EA5B4] text-gray-100":"bg-transparent"} flex items-center gap-2 font-semibold cursor-pointer p-3 rounded-2xl w-full` }> <LayoutDashboard/> <span>Dashboard</span> </NavLink>
 

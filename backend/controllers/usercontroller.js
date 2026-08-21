@@ -370,7 +370,7 @@ export const allUser = async (_, res) =>{
 
 export const getUserById = async (req,res) =>{
     try{
-        const {useerId} = req.params; // extract userid by req params
+        const {userId} = req.params; // extract userid by req params
         const user = await User.findById(userId).select("-password -otp -otpExpiry -token")  // want to hide sensitive info 
         if(!user){
             return res.status(404).json({
