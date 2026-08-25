@@ -137,7 +137,9 @@ const handleRemove = async(productId) => {
                           <Input placeholder="Promo Code"/>
                           <Button variant='outline'>Apply</Button>
                         </div>
-                        <Button className="w-full bg-linear-to-br from-[#2A6BE6] via-[#1E85C7] to-[#0EA5B4] cursor-pointer">Place Order</Button>
+                        <Button
+                          onClick={()=>navigate('/address')}
+                         className="w-full bg-linear-to-br from-[#2A6BE6] via-[#1E85C7] to-[#0EA5B4] cursor-pointer">Place Order</Button>
                         <Button variant='outline' className='w-full bg-transparent'> <Link to="/products"></Link> Continue Shopping </Button>
                       </div>
                       <div className='text sm text-muted-foreground pt-4'>
