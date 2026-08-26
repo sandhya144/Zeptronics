@@ -5,8 +5,10 @@ import userRoute from './routes/userRoutes.js'
 import authRoute from './routes/authRoutes.js'
 import productRoute from './routes/productRoutes.js'
 import cartRoute from  './routes/cartRoutes.js'
+import orderRoutes from  './routes/orderRoutes.js'
 import cors from 'cors'
 import "./config/passport.js";
+
 
 const app = express();   // express power usko app me dal diya 
 const PORT = process.env.PORT || 3000;    // port --> server listen 
@@ -23,6 +25,7 @@ app.use('/api/v1/user', userRoute)
 app.use('/auth', authRoute)
 app.use('/api/v1/product', productRoute)
 app.use('/api/v1/cart', cartRoute )
+app.use('/api/v1/orders', orderRoutes)
 
 
 // http://localhost:8000/api/v1/user/register
