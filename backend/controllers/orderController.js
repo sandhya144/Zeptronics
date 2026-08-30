@@ -102,3 +102,47 @@ export const getMyOrder = async (req,res) =>{
     res.status(500).json({message: error.message})
   }
 }
+
+// admin only 
+export const getUserOrders = async(req,res) =>{
+  try {
+    const {userId} = req.params;  // user id will come from url
+    const orders = await Order.find({user:userId})
+    .populate({
+      path:"products.productId",
+      select:"productName productPrice productImg"
+    })  //fetch product details
+    .populate("user","firstName lastName email")  // fetch user info
+
+    res.status(200).json({
+      success:true,
+      count:orders.length,
+      orders
+    })
+  } catch (error) {
+    console.log("Error fetching user order: ", error)
+    res.status(500).json({message:error:message})
+  }
+}
+
+export const getAllOrdersAdmin = async(req,res) =>{
+  try {
+    const orders = await Order.find()
+    .sort({createdAt: -1})
+    .populate("user","name email")  // populate user Info
+    .populate("products.productId","productName productPrice")
+
+    res.json({
+      success:true,
+      count:orders.length,
+      orders
+    })
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      success:false,
+      message:"Failed to fetch all orders",
+      error: error.message
+    })
+  }
+}
