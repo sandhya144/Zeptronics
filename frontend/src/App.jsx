@@ -26,6 +26,7 @@ import UserInfo from './pages/admin/UserInfo'
 import ProtectedRoute from './components/ProtectedRoutes'
 import SingleProduct from './pages/SingleProduct';
 import AddressForm from './pages/AddressForm';
+import OrderSuccess from './pages/OrderSuccess';
 
 
 const router = createBrowserRouter([
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
    {
     path: 'address',
     element:  <ProtectedRoute userOnly={true}>  <AddressForm/>  </ProtectedRoute>
+  },
+  {
+    path: 'orders-success',
+    element:  <ProtectedRoute  > <OrderSuccess/> </ProtectedRoute>
   },
   {
     path: 'dashboard',

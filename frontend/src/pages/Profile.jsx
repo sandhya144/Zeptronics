@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
 import axios from "axios";
 import { setUser } from "@/redux/userslice";
+import MyOrder from "./MyOrders";
 
 
 
@@ -236,12 +237,13 @@ const Profile = () => {
           </TabsContent>
 
           <TabsContent value="orders">
-            <div className="bg-white rounded-lg shadow p-6">
+            {/* <div className="bg-white rounded-lg shadow p-6">
               <h2 className="text-xl font-semibold">My Orders</h2>
               <p className="text-gray-500 mt-2">
                 No orders found.
               </p>
-            </div>
+            </div> */}
+            <MyOrder/>
           </TabsContent>
         </Tabs>
       </div>
