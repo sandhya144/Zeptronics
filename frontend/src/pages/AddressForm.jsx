@@ -3,9 +3,12 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
-import { addAddress, deleteAddress, setSelectedAddress } from '@/redux/productSlice'
+import { addAddress, deleteAddress, setCart, setSelectedAddress } from '@/redux/productSlice'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'sonner'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios';
 
 const AddressForm = () => {
 
@@ -23,6 +26,9 @@ const [formData, setFormData] = useState({
 const {cart, addresses, selectedAddress} = useSelector((store)=>store.product)
 const [showForm, setShowForm] = useState(addresses?.length > 0 ? false : true)
 const dispatch = useDispatch();
+const navigate = useNavigate();
+
+
 
 const handleChange = (e)=>{
   setFormData({...formData, [e.target.name]: e.target.value})
@@ -34,9 +40,97 @@ const handleSave = (e) =>{
 }
 
 const subtotal = cart.totalPrice;
-const shipping = subtotal>50 ? 0 : 10;
+const shipping = subtotal > 50 ? 0 : 10;
 const tax = parseFloat((subtotal*0.05).toFixed(2))
 const total = subtotal + shipping + tax;
+
+const handlePayment = async()=>{
+  const accessToken = localStorage.getItem("accessToken")
+
+  try {
+
+    console.log("CART BEFORE PAYMENT:", cart);
+    console.log("CART ITEMS:", cart?.items);
+    const {data} = await axios.post(`${import.meta.env.VITE_URL}/api/v1/orders/create-order`,{
+
+      products:cart?.items?.map(item =>({
+        productId: item.productId._id,
+        quantity:item.quantity,   
+      })),
+      tax,
+      shipping,
+      amount:total,
+      currency:"INR"
+    },{
+      headers:{Authorization:`Bearer ${accessToken}`}
+    })
+
+    if(!data.success) return toast.error("Something Went Wrong")
+
+    const options = {
+    key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+    amount: data.order.amount,
+    currency: data.order.currency,
+    order_id: data.order.id, // Order ID from backend
+    name:"Zeptronics",
+    description: "Order Payment",
+    // to verify payments 
+    handler: async function (response){
+        try {
+          const verifyRes = await axios.post(`${import.meta.env.VITE_URL}/api/v1/orders/verify-payment`, response,{
+            headers:{Authorization:`Bearer ${accessToken}`}
+          })
+          
+          if(verifyRes.data.success){
+            toast.success("✅ Payment Successfull!")
+            dispatch(setCart({items: [], totalPrice: 0}))
+            navigate("/orders-success");
+          } else{
+            toast.error("❌ Payment Verification Failed")
+          }
+
+        } catch (error) {
+          toast.error("Error verifying Payment")
+        }
+     },
+     modal:{
+       ondismiss: async function () {
+        //handle user closing the popup 
+        await axios.post(`${import.meta.env.VITE_URL}/api/v1/orders/verify-payment`,{
+          razorpay_order_id: data.order.id,
+          paymentFailed:true
+        }, {
+          headers:{Authorization: `Bearer ${accessToken}`}
+        });
+        toast.error("Payment Cancelled or Failed")
+       }
+     } ,
+     prefill:{
+      name:formData.fullName,
+      email:formData.email,
+      contact:formData.phone,
+     },
+     theme:{color: "#0EA5B4"}
+    };
+
+    const rzp = new window.Razorpay(options)
+    // listen for payment failures
+    rzp.on("payment.failed", async function (response){
+      await axios.post(`${import.meta.env.VITE_URL}/api/v1/orders/verify-payment`,{
+          razorpay_order_id: data.order.id,
+          paymentFailed:true
+      }, {
+          headers:{Authorization: `Bearer ${accessToken}`}
+        })
+        toast.error("Payment Failed. Please try again")
+    })
+    rzp.open();
+
+  } catch (error) {
+    console.error(error)
+    toast.error("Something went wrong while processing payment.")
+  }
+}
 
   return (
     <div className='max-w-7xl mx-auto grid place-items-center p-10'>
@@ -154,16 +248,15 @@ const total = subtotal + shipping + tax;
                     </div>
                   })
                 }
-
-                <Button variant="outline" onClick={()=>setShowForm(true)} className='w-full'> + Add New Address </Button>
-                <Button disabled={selectedAddress === null} className='w-full bg-linear-to-br from-[#2A6BE6] via-[#1E85C7] to-[#0EA5B4] '>Proceed To CheckOut </Button>
+              <Button variant="outline" onClick={()=>setShowForm(true)} className='w-full'> + Add New Address </Button>
+              <Button onClick={handlePayment} disabled={selectedAddress === null} className='w-full bg-linear-to-br from-[#2A6BE6] via-[#1E85C7] to-[#0EA5B4] '>Proceed To CheckOut </Button>
             </div>
             )
           }
         </div>
 
           <div>
-            <Card className='w-[400px]'>
+            <Card className='w-100'>
               <CardHeader>
                 <CardTitle> Order Summary </CardTitle>
                 </CardHeader>
@@ -191,12 +284,8 @@ const total = subtotal + shipping + tax;
                         <p>* Secure checkout with SSL encryption</p>
                     </div>
                   </CardContent>
-                
-              
             </Card>
           </div>
-
-
       </div>
     </div>
   )

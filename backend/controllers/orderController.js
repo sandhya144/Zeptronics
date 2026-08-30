@@ -1,4 +1,4 @@
-import razorpayInstance from "../config/razorpay"
+import razorpayInstance from "../config/razorpay.js"
 import { Cart } from "../models/cartModel.js";
 import { Order } from "../models/orderModel.js";
 import crypto from "crypto";
@@ -69,7 +69,7 @@ export const verifyPayment = async(req,res)=>{
                 },
                  {new: true}
             );
-            await Cart.findOneAndUpdate({userId},{$set: {items:[], totalPrice:0}})
+            await Cart.findOneAndUpdate({userId: req.user._id},{$set: {items:[], totalPrice:0}})
             return res.json({success: true, message:"Payment Successfull", order})
         } else{
           await Order.findOneAndUpdate(

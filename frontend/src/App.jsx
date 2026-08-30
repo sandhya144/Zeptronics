@@ -130,7 +130,7 @@ const App = () => {
       }
       try {
         const res = await axios.get("http://localhost:8000/api/v1/cart", {
-          headers: { Authorization: `Bearer ${accessToken}` },
+          headers: { Authorization: `Bearer ${accessToken}`},
         })
         console.log("CART RESPONSE:", JSON.stringify(res.data))
         if (!isCancelled && res?.data?.success) {
