@@ -103,7 +103,7 @@ const router = createBrowserRouter([
         element: <AdminOrders/>
       },
       {
-        path:"user/orders/:userId",
+        path:"users/orders/:userId",
         element: <ShowUserOrders/>
       },
       {

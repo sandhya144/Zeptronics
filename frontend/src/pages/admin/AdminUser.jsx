@@ -1,5 +1,4 @@
 import { Input } from '@/components/ui/input';
-import { setUser } from '@/redux/userslice';
 import { Edit, Eye, Search, Users2 } from 'lucide-react';
 import React, { useEffect, useState } from 'react'
 import UserLogo from '../../assets/user.jpg';
@@ -68,7 +67,7 @@ useEffect(()=> {
 
                <div className='flex gap-3 mt-3' >
                 <Button onClick={()=>navigate(`/dashboard/users/${users?._id}`)} variant='outline'className='cursor-pointer'> <Edit/> Edit </Button>
-                <Button className='bg-linear-to-br from-[#2A6BE6] via-[#1E85C7] to-[#0EA5B4]  cursor-pointer'><Eye/>Show Orders</Button>
+                <Button onClick={()=>navigate(`/dashboard/users/orders/${users?._id}`)}  className='bg-linear-to-br from-[#2A6BE6] via-[#1E85C7] to-[#0EA5B4]  cursor-pointer'><Eye/>Show Orders</Button>
            </div>
             
           </div>

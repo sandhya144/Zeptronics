@@ -121,7 +121,7 @@ export const getUserOrders = async(req,res) =>{
     })
   } catch (error) {
     console.log("Error fetching user order: ", error)
-    res.status(500).json({message:error:message})
+    res.status(500).json({message:error.message})
   }
 }
 
