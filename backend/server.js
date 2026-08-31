@@ -16,8 +16,25 @@ const PORT = process.env.PORT || 3000;    // port --> server listen
 // middleware
 app.use(express.json());
 
+// app.use(cors({
+//     origin:'http://localhost:5173',   // frontend url
+//     credentials: true,
+// }))
+
+const allowedOrigins = [
+    'http://localhost:5173',              // local dev
+    process.env.FRONTEND_URL              // live frontend (set in Render env vars)
+]
+
 app.use(cors({
-    origin:'http://localhost:5173',   // frontend url
+    origin: function (origin, callback) {
+        if (!origin) return callback(null, true) // allow Postman/curl with no origin
+        if (allowedOrigins.includes(origin)) {
+            return callback(null, true)
+        } else {
+            return callback(new Error('Not allowed by CORS: ' + origin))
+        }
+    },
     credentials: true,
 }))
 
