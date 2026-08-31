@@ -48,7 +48,7 @@ const Login = () => {
       setLoading(true);
 
       const res = await axios.post(
-        "http://localhost:8000/api/v1/user/login",
+        `${import.meta.env.VITE_URL}/api/v1/user/login`,
         formData,
         {
           headers: {
@@ -75,7 +75,7 @@ const Login = () => {
 
         // changes i made 
         const cartRes = await axios.get(
-  "http://localhost:8000/api/v1/cart",
+  `${import.meta.env.VITE_URL}/api/v1/cart`,
   {
     headers: {
       Authorization: `Bearer ${res.data.accessToken}`,
@@ -172,7 +172,7 @@ dispatch(setCart(cartRes.data.cart));
             variant="outline"
             className="w-full"
             onClick={() =>
-              window.open("http://localhost:8000/auth/google", "_self")
+              window.open(`${import.meta.env.VITE_URL}/auth/google`, "_self")
             }
           >
             <img src={google} alt="Google" className="w-4.5" />

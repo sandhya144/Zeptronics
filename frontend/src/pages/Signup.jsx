@@ -45,7 +45,7 @@ const signup = () => {
       setLoading(true);
 
       const res = await axios.post(
-        `http://localhost:8000/api/v1/user/register`,
+        `${import.meta.env.VITE_URL}/api/v1/user/register`,
         formData,
         {
           headers: {
@@ -165,7 +165,7 @@ const signup = () => {
 
           <Button
             onClick={() =>
-              window.open("http://localhost:8000/auth/google", "_self")
+              window.open(`${import.meta.env.VITE_URL}/auth/google`, "_self")
             }
             variant="outline"
             className="w-full"

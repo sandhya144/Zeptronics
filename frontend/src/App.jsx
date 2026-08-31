@@ -135,7 +135,10 @@ const App = () => {
         return
       }
       try {
-        const res = await axios.get("http://localhost:8000/api/v1/cart", {
+        // const res = await axios.get("http://localhost:8000/api/v1/cart", {
+        //   headers: { Authorization: `Bearer ${accessToken}`},
+        // })
+        const res = await axios.get(`${import.meta.env.VITE_URL}/api/v1/cart`, {
           headers: { Authorization: `Bearer ${accessToken}`},
         })
         console.log("CART RESPONSE:", JSON.stringify(res.data))
