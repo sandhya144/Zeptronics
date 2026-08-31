@@ -45,8 +45,6 @@ app.use('/api/v1/cart', cartRoute )
 app.use('/api/v1/orders', orderRoutes)
 
 
-// http://localhost:8000/api/v1/user/register
-
 app.listen(PORT,() => {
     connectDB();
     console.log(`server is listening at port: ${PORT}`);

@@ -1,6 +1,4 @@
 import ImageUpload from "@/components/ImageUpload";
-import ProductDesc from "@/components/ProductDesc";
-import ProductImg from "@/components/ProductImg";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -67,7 +65,7 @@ const AddProduct = () => {
     try {
       setLoading(true)
       const res = await axios.post(
-        `http://localhost:8000/api/v1/product/add`,
+        `${import.meta.env.VITE_URL}/api/v1/product/add`,
         formData,
         {
           headers: {
