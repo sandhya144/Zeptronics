@@ -4,7 +4,7 @@ import { FaFacebook, FaInstagram, FaPinterest, FaTwitterSquare } from 'react-ico
 
 const Footer = () => {
   return (
-    <footer className='bg-gray-900 text-gray-200 py-10'>
+    <footer className='bg-gray-900 text-gray-200 py-15'>
       <div className='max-w-7xl mx-auto px-4 md:flex md:justify-between'>
 
         {/* info */}
@@ -13,11 +13,11 @@ const Footer = () => {
             <img src='/Ekart (2).svg' alt="" className='w-15' />
           </Link>
 
-          <p className='mt-2 text-sm'>
+          <p className='mt-4 text-sm'>
             Powering Your World with the Best in Electronics.
           </p>
 
-          <p className='mt-2 text-sm'>
+          <p className='mt-4 text-sm'>
             123 Electronics St, Style City, NY 10001
           </p>
 
@@ -59,11 +59,11 @@ const Footer = () => {
         <div>
           <h3 className='text-xl font-semibold'>Stay in the Loop</h3>
 
-          <p className='mt-2 text-sm'>
+          <p className='mt-3 text-sm'>
             Subscribe to get special offers, free giveaways, and more
           </p>
 
-          <form action="" className='mt-4 flex'>
+          <form action="" className='mt-5 flex'>
             <input
               type="email"
               placeholder='Your email address'
@@ -72,7 +72,7 @@ const Footer = () => {
 
             <button
               type='submit'
-              className='bg-pink-600 text-white px-4 rounded-r-md hover:bg-red-700'
+              className='bg-linear-to-br from-[#2A6BE6] via-[#1E85C7] to-[#0EA5B4] text-white px-4 rounded-r-md hover:bg-red-700'
             >
               Subscribe
             </button>
@@ -82,10 +82,10 @@ const Footer = () => {
       </div>
 
       {/* bottom section */}
-      <div className='mt-8 border-t border-gray-700 pt-6 text-center text-sm'>
+      <div className='mt-15 border-t border-gray-700 pt-6 text-center text-sm'>
         <p>
           &copy; {new Date().getFullYear()}{' '}
-          <span className='text-pink-600'>EKart</span>. All rights reserved
+          <span className='text-[#1E85C7]'>Zeptronics</span>. All rights reserved
         </p>
       </div>
     </footer>
