@@ -24,7 +24,7 @@ razorpayOrderId: {type:String},
 razorpayPaymentId: {type:String},
 razorpaySignature: {type:String},
 
-}, {timeStamps:true});
+}, {timestamps:true});
 
 
 

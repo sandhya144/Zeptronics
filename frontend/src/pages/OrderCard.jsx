@@ -10,7 +10,7 @@ const OrderCard = ({userOrder}) => {
       <div className="w-full p-6">
         <div className="flex items-center gap-4 mb-6">
           <Button
-            onClick={() => NavigateEvent(-1)}
+            onClick={() => navigate(-1)}
             className="cursor-pointer bg-linear-to-br from-[#2A6BE6] via-[#1E85C7] to-[#0EA5B4] "
           >
             <ArrowLeft />
