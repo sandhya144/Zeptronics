@@ -175,12 +175,12 @@ const AdminProduct = () => {
             placeholder="Search Product..."
             value={searchTerm} 
             onChange={(e)=>SetSearchTerm(e.target.value)}
-            className="w-[400px] items-center"
+            className="w-100 items-center"
           />
           <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 h-5 w-5" />
         </div>
         <Select onValueChange={(value)=>setSortOrder(value)} >
-          <SelectTrigger className="w-[200px] bg-white">
+          <SelectTrigger className="w-50 bg-white">
             <SelectValue placeholder="Sort By Price" />
           </SelectTrigger>
           <SelectContent>
@@ -222,7 +222,7 @@ const AdminProduct = () => {
                     />
                   </DialogTrigger>
 
-                  <DialogContent className="w-[85vw] !max-w-6xl h-[90vh] overflow-y-auto">
+                  <DialogContent className="w-[85vw] max-w-6xl! h-[90vh] overflow-y-auto">
                     <DialogHeader>
                       <DialogTitle>Edit Product</DialogTitle>
                       <DialogDescription>

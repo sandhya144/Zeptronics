@@ -157,7 +157,7 @@ export const getSalesData = async(req,res) =>{
 
     // total sales amount
     const totalSalesAgg = await Order.aggregate([
-      {$match : {status:"paid"}},
+      {$match : {status:"Paid"}},
       {$group: {_id:null, total:{$sum:"$amount"}}}
     ])
 
@@ -166,7 +166,7 @@ export const getSalesData = async(req,res) =>{
     // sales grouped by last 30 days (date)
 
     const thirtyDaysAgo = new Date()
-    thirtyDaysAgo.setDate(thirtyDaysAgo.getData() - 30)
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30)
     
     // mongodb aggregation pipeline...
     const salesByDate = await Order.aggregate([
@@ -174,7 +174,7 @@ export const getSalesData = async(req,res) =>{
       {
         $group: {
           _id:{
-            $dateToString: {format: "%y-%m-%d", date: "$createdAt"}
+            $dateToString: {format: "%Y-%m-%d", date: "$createdAt"}
           },
           amount: { $sum: "$amount"},
         }
