@@ -4,12 +4,12 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Verify from './pages/Verify'
 import VerifyEmail from './pages/VerifyEmail'
-import Footer from './components/Footer'
 import AuthSuccess from './pages/AuthSuccess'
 import Profile from './pages/Profile'
 import Products from './pages/Products'
@@ -27,6 +27,7 @@ import ProtectedRoute from './components/ProtectedRoutes'
 import SingleProduct from './pages/SingleProduct';
 import AddressForm from './pages/AddressForm';
 import OrderSuccess from './pages/OrderSuccess';
+
 
 
 const router = createBrowserRouter([
