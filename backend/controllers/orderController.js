@@ -2,6 +2,8 @@ import razorpayInstance from "../config/razorpay.js"
 import { Cart } from "../models/cartModel.js";
 import { Order } from "../models/orderModel.js";
 import crypto from "crypto";
+import User from "../models/usermodel.js";
+import { Product } from "../models/productModel.js";
 
 export const createOrder = async(req,res) =>{
     try {
@@ -39,7 +41,6 @@ export const createOrder = async(req,res) =>{
         res.status(500).json({success: false, message:error.message})
     }
 }
-
 
 export const verifyPayment = async(req,res)=>{
     try {
@@ -144,5 +145,62 @@ export const getAllOrdersAdmin = async(req,res) =>{
       message:"Failed to fetch all orders",
       error: error.message
     })
+  }
+}
+
+// get sales Data
+export const getSalesData = async(req,res) =>{
+  try {
+    const totalUsers = await User.countDocuments({})
+    const totalProducts = await Product.countDocuments({})
+    const totalOrders = await Order.countDocuments({status: "Paid"})
+
+    // total sales amount
+    const totalSalesAgg = await Order.aggregate([
+      {$match : {status:"paid"}},
+      {$group: {_id:null, total:{$sum:"$amount"}}}
+    ])
+
+    const totalSales = totalSalesAgg[0]?.total || 0;
+     
+    // sales grouped by last 30 days (date)
+
+    const thirtyDaysAgo = new Date()
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getData() - 30)
+    
+    // mongodb aggregation pipeline...
+    const salesByDate = await Order.aggregate([
+      {$match: {status:"Paid", createdAt: {$gte: thirtyDaysAgo}}},   // gte -> greater than equal to 
+      {
+        $group: {
+          _id:{
+            $dateToString: {format: "%y-%m-%d", date: "$createdAt"}
+          },
+          amount: { $sum: "$amount"},
+        }
+      },
+      {$sort: {_id: 1}}
+    ])
+
+  console.log(salesByDate)
+
+  const formattedSales = salesByDate.map((item) => ({
+    date:item._id,
+    amount:item.amount
+  }))
+
+  console.log(formattedSales)
+
+  res.json({
+    success:true,
+    totalUsers,
+    totalProducts,
+    totalOrders,
+    totalSales,
+    sales:formattedSales
+  })
+  } catch (error) {
+    console.error("Error fetching sales Data: ", error)
+    res.status(500).json({success:false, message:error.message})
   }
 }

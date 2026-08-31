@@ -1,5 +1,5 @@
 import express from "express";
-import { createOrder, getAllOrdersAdmin, getMyOrder, getUserOrders, verifyPayment } from "../controllers/orderController.js";
+import { createOrder, getAllOrdersAdmin, getMyOrder, getSalesData, getUserOrders, verifyPayment } from "../controllers/orderController.js";
 import { isAdmin, isAuthenticated } from "../middleware/isAuthenticated.js";
 
 
@@ -10,7 +10,7 @@ router.post("/verify-payment", isAuthenticated , verifyPayment)
 router.get("/myorder", isAuthenticated, getMyOrder)
 router.get("/all", isAuthenticated, isAdmin, getAllOrdersAdmin)
 router.get("/user-order/:userId", isAuthenticated, isAdmin, getUserOrders)
-
+router.get("/sales", isAuthenticated, isAdmin, getSalesData)
 
 
 export default router;
