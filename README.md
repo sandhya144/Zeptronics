@@ -1,515 +1,492 @@
-<div align="center">
+# Zeptronics ⚡🛒
 
-# ⚡ Zeptronics
+**Frontend**
+![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-B73BFE?style=flat-square&logo=vite&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=flat-square&logo=reactrouter&logoColor=white)
+![Axios](https://img.shields.io/badge/Axios-5A29E4?style=flat-square&logo=axios&logoColor=white)
 
-> *🛒 "A specialized full-stack electronics marketplace — not just another generic store."*
+**State**
+![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-764ABC?style=flat-square&logo=redux&logoColor=white)
+![Redux Persist](https://img.shields.io/badge/Redux_Persist-764ABC?style=flat-square)
 
-<br/>
+**UI**
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
+![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-000000?style=flat-square&logo=shadcnui&logoColor=white)
+![Lucide React](https://img.shields.io/badge/Lucide_React-F56565?style=flat-square&logo=lucide&logoColor=white)
+![Sonner](https://img.shields.io/badge/Sonner-1C1C1C?style=flat-square)
 
-<div align="center">
+**Backend**
+![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?style=flat-square&logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express-5-000000?style=flat-square&logo=express&logoColor=white)
 
-<!-- Frontend -->
-<img src="https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB">
-<img src="https://img.shields.io/badge/Redux_Toolkit-764ABC?style=flat&logo=redux&logoColor=white">
-<img src="https://img.shields.io/badge/Axios-5A29E4?style=flat&logo=axios&logoColor=white">
-<img src="https://img.shields.io/badge/React_Router-CA4245?style=flat&logo=reactrouter&logoColor=white">
-<img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white">
-<img src="https://img.shields.io/badge/Shadcn_UI-000000?style=flat&logo=shadcnui&logoColor=white">
+**Database**
+![MongoDB Atlas](https://img.shields.io/badge/MongoDB_Atlas-47A248?style=flat-square&logo=mongodb&logoColor=white)
+![Mongoose](https://img.shields.io/badge/Mongoose-880000?style=flat-square)
 
+**Auth**
+![JWT](https://img.shields.io/badge/JWT-000000?style=flat-square&logo=jsonwebtokens&logoColor=white)
+![bcryptjs](https://img.shields.io/badge/bcryptjs-338833?style=flat-square)
+![Passport.js](https://img.shields.io/badge/Passport.js-34E27A?style=flat-square&logo=passport&logoColor=white)
+![Google OAuth](https://img.shields.io/badge/Google_OAuth-4285F4?style=flat-square&logo=google&logoColor=white)
 
-<!-- Backend -->
-<img src="https://img.shields.io/badge/Node.js-43853D?style=flat&logo=node.js&logoColor=white">
-<img src="https://img.shields.io/badge/Express.js-404D59?style=flat">
-<img src="https://img.shields.io/badge/Multer-FF6F00?style=flat">
-<img src="https://img.shields.io/badge/Nodemailer-30B980?style=flat">
+**Uploads**
+![Multer](https://img.shields.io/badge/Multer-FF6600?style=flat-square)
+![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=flat-square&logo=cloudinary&logoColor=white)
 
-<!-- Database & Auth -->
-<img src="https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white">
-<img src="https://img.shields.io/badge/MongoDB_Atlas-47A248?style=flat&logo=mongodb&logoColor=white">
-<img src="https://img.shields.io/badge/JWT-000000?style=flat&logo=jsonwebtokens&logoColor=white">
-<img src="https://img.shields.io/badge/bcrypt-3382CC?style=flat">
-<img src="https://img.shields.io/badge/OTP-FF9800?style=flat">
+**Payments**
+![Razorpay](https://img.shields.io/badge/Razorpay-0C2451?style=flat-square&logo=razorpay&logoColor=white)
 
-<!-- Services -->
-<img src="https://img.shields.io/badge/Cloudinary-3448C5?style=flat&logo=cloudinary&logoColor=white">
-<img src="https://img.shields.io/badge/Razorpay-0D6EFD?style=flat&logo=razorpay&logoColor=white">
+**Email**
+![Nodemailer](https://img.shields.io/badge/Nodemailer-22B573?style=flat-square)
+![Gmail SMTP](https://img.shields.io/badge/Gmail_SMTP-EA4335?style=flat-square&logo=gmail&logoColor=white)
 
-</div>
+**Project**
+![License](https://img.shields.io/badge/License-none-lightgrey?style=flat-square)
 
-<br/>
+*A full-stack electronics marketplace — browse, cart, verify, and check out — without the clutter of a generic retail template.*
 
-**[🚀 Get Started](#-installation)** · **[✨ Features](#-features)** · **[🏗️ Architecture](#%EF%B8%8F-architecture)** · **[📡 API Reference](#-api-reference)** · **[🤝 Contributing](#-contributing)**
-
-
-</div>
-
-
----
-
-## 😤 The Problem
-
-Generic e-commerce platforms force electronics shoppers to wade through irrelevant categories and clunky product comparisons. 
-Finding the right laptop, headphone, or smart device by brand, spec, or price shouldn't feel like a scavenger hunt. 
-
-Zeptronics is built specifically for electronics — the filtering, the categories, the admin tools — so nothing gets in the way of buying or selling the right gadget.
-
----
-## 📖 About
-
-Zeptronics is a full-stack MERN e-commerce platform built exclusively for buying and selling electronic gadgets and accessories. It was developed to create a **specialized electronics marketplace**, where users can easily discover, compare, and purchase products instead of using a generic online store.
-
-The platform offers a complete online shopping experience with secure authentication, advanced product search and filtering, shopping cart management, Razorpay payment integration, and order tracking. It also features dedicated **User** and **Admin** panels, enabling customers to shop seamlessly while allowing administrators to efficiently manage products, users, orders, and overall store operations.
-
+**Jump to:** [Features](#-what-it-does) · [Architecture](#-architecture) · [How It Works](#-how-it-works) · [Payment Integration](#-payment-integration) · [Installation](#-installation) · [API Reference](#-api-reference) · [Troubleshooting](#-troubleshooting) · [Contributing](#-contributing)
 
 ---
 
-## ✨ Features
+## 💡 The Problem
 
-| ✅ Feature | 📝 Description |
+Most e-commerce boilerplates are built for "sell anything," which means electronics shoppers get generic categories, weak filtering, and a checkout flow that was never designed around technical products or admin-heavy catalogs. Zeptronics exists because electronics deserve their own storefront: real product management, verified accounts, a cart that behaves, and a payment flow you can actually trust.
+
+## 🚀 What It Does
+
+| Feature | Description |
 |---|---|
-| 🔍 Product Search & Filtering | Filter by brand, category, and price range |
-| 🔐 Secure Authentication | JWT-based login, email verification, and password reset via OTP |
-| 🌐 Google OAuth | Sign in with Google using Passport.js |
-| 🛒 Cart Management | Add, update, and remove items from a persistent cart |
-| 💳 Razorpay Payments | Secure checkout with signature verification and order saving |
-| 📦 Order Tracking | Users can view purchase history and order status |
-| ☁️ Cloudinary Image Hosting | Product images uploaded and served via Cloudinary |
-| 🛠️ Admin Dashboard | Manage products, categories, users, and orders in one place |
-| 📧 Email Notifications | Nodemailer-powered verification and OTP emails via Gmail SMTP |
-| ⚙️ Redux State Management | Redux Toolkit + Redux Persist for reliable frontend state |
+| Account verification | Email verification via JWT + Nodemailer (`usercontroller.js`, `verifyEmail.js`) |
+| Full auth suite | Login, logout, password reset, OTP verification, password change |
+| Google OAuth | Passport.js-based Google login (`authRoutes.js`) |
+| Product CRUD | Admin product management with Cloudinary image uploads (`cloudinary.js`) |
+| Cart engine | Add / update quantity / remove, fully scoped to the authenticated user |
+| Payments | Razorpay order creation + signature verification (`orderController.js`) |
+| Order history & analytics | Per-user order history plus admin sales aggregation in MongoDB |
+| Redux-backed state | Session and cart persistence across the app |
+| Route protection | User-only and admin-only routes (`ProtectedRoutes.jsx`) |
 
----
-
-## 🏗️ System Architecture
+## 🧩 Architecture
 
 ```mermaid
 graph LR
+    subgraph frontend["Frontend"]
+        UI[React App - Vite]
+        Store[Redux Store]
+    end
 
-subgraph Frontend
-    UI[React UI]
-    Router[React Router]
-    Store[Redux Toolkit]
-    Client[Axios Client]
-    UI --> Router --> Store --> Client
-end
+    subgraph backend["Backend"]
+        API[Express API]
+        Auth[Auth Middleware - JWT]
+        Ctrl[Controllers]
+    end
 
-subgraph Backend
-    UserRoute[api/user]
-    ProductRoute[api/product]
-    OrderRoute[api/order]
-    Auth[JWT Middleware]
-    Upload[Multer Middleware]
-    AuthCtrl[Auth Controller]
-    ProductCtrl[Product Controller]
-    OrderCtrl[Order Controller]
-    CartCtrl[Cart Controller]
-end
+    subgraph external["External Services"]
+        Google[Google OAuth]
+        Cloud[Cloudinary]
+        Pay[Razorpay]
+        Mail[Gmail SMTP - Nodemailer]
+    end
 
-subgraph Database
-    Mongo[MongoDB Atlas]
-end
+    subgraph database["Database"]
+        Mongo[(MongoDB Atlas)]
+    end
 
-subgraph External
-    Cloudinary[Cloudinary]
-    Razorpay[Razorpay]
-    Mail[Nodemailer]
-end
-
-Client --> UserRoute --> Auth --> AuthCtrl
-Client --> ProductRoute --> Upload --> ProductCtrl
-Client --> OrderRoute --> Auth --> OrderCtrl
-Auth --> CartCtrl
-
-AuthCtrl --> Mongo
-ProductCtrl --> Mongo
-OrderCtrl --> Mongo
-CartCtrl --> Mongo
-
-ProductCtrl --> Cloudinary
-OrderCtrl --> Razorpay
-AuthCtrl --> Mail
+    UI --> Store
+    UI --> API
+    API --> Auth
+    Auth --> Ctrl
+    Ctrl --> Mongo
+    Ctrl --> Google
+    Ctrl --> Cloud
+    Ctrl --> Pay
+    Ctrl --> Mail
 ```
 
+Every authenticated request passes through the JWT middleware before it ever reaches a controller, and every controller talks to exactly one of the four external dependencies above — never directly to the frontend.
 
+## 🛠️ Tech Stack
 
----
-
-## 🧰 Tech Stack
-
-| 🔧 Layer | 💡 Technology |
+| Layer | Technology |
 |---|---|
-| 🖥️ Frontend | React 19, Vite, react-router-dom, Axios |
-| 🗂️ State | Redux Toolkit, Redux Persist |
-| 🎨 UI | Tailwind CSS 4, shadcn/ui components, lucide-react, sonner |
-| ⚙️ Backend | Node.js, Express 5 |
-| 🗄️ Database | MongoDB Atlas, Mongoose |
-| 🔐 Authentication | JWT, bcryptjs, Passport, passport-google-oauth20 |
-| 📁 File Upload | Multer, Cloudinary |
-| 💳 Payments | Razorpay |
-| 📧 Email | Nodemailer (Gmail SMTP) |
-
----
-
-## ⚙️ How It Works
-
-### 🔐 Authentication Flow
-
-```mermaid
-sequenceDiagram
-    participant User
-    participant React
-    participant Express
-    participant MongoDB
-    participant Nodemailer
-
-    User->>React: Fill signup form
-    React->>Express: POST /api/user/register
-    Express->>MongoDB: Save user - isVerified false
-    Express->>Nodemailer: Send verification email with JWT link
-    Nodemailer-->>User: Email with verify link
-
-    User->>React: Click verify link
-    React->>Express: POST /api/user/verify - JWT in header
-    Express->>MongoDB: Set isVerified to true
-
-    User->>React: Submit login form
-    React->>Express: POST /api/user/login
-    Express->>MongoDB: Check password with bcrypt
-    Express-->>React: accessToken and refreshToken
-```
-
-### 💳 Payment Flow
-
-```mermaid
-sequenceDiagram
-    participant User
-    participant Frontend
-    participant Backend
-    participant Razorpay
-    participant MongoDB
-
-    User->>Frontend: Click Checkout
-    Frontend->>Backend: Request order creation
-    Backend->>Razorpay: Create order ID
-    Razorpay-->>Backend: Return order ID
-    Backend-->>Frontend: Send order ID and key
-    Frontend->>User: Open Razorpay payment modal
-    User->>Razorpay: Provide payment details
-    Razorpay->>Backend: Webhook with payment result
-    Backend->>Backend: Verify signature
-    Backend->>MongoDB: Save order details
-    Backend-->>Frontend: Success response
-```
-
----
+| Frontend | React 19, Vite, React Router, Axios |
+| State management | Redux Toolkit, Redux Persist |
+| UI | Tailwind CSS 4, shadcn/ui, Lucide React, Sonner |
+| Backend | Node.js, Express 5 |
+| Database | MongoDB Atlas, Mongoose |
+| Authentication | JWT, bcryptjs, Passport, passport-google-oauth20 |
+| File upload | Multer, Cloudinary |
+| Payments | Razorpay |
+| Email | Nodemailer (Gmail SMTP) |
 
 ## 📸 Screenshots
 
+> Add real screenshots here once available — placeholders below.
+
+```md
+![Home page](./docs/screenshots/home.png)
+![Product listing](./docs/screenshots/products.png)
+![Admin dashboard](./docs/screenshots/dashboard.png)
 ```
-![Homepage](docs/screenshots/homepage.png)
-![Product Listing](docs/screenshots/products.png)
-![Admin Dashboard](docs/screenshots/admin.png)
+
+## ⚙️ How It Works
+
+- **Signup → Verify**: `Signup.jsx` posts to `/api/v1/user/register`, which hashes the password, creates the user, and emails a JWT verification link. `VerifyEmail.jsx` posts that token to `/api/v1/user/verify`, which flips `isVerified` to `true`.
+- **Login**: `/api/v1/user/login` checks credentials, issues `accessToken` + `refreshToken`, and replaces any existing session in the `Session` collection.
+- **Google OAuth**: `/auth/google` → Passport's Google strategy → `/auth/google/callback` issues a JWT and redirects to `/auth-success?token=...`, where the frontend stores it and calls `/auth/me`.
+- **Cart**: Every cart route reads `req.id` from the auth middleware, so all cart state is inherently user-scoped — no cross-account leakage.
+- **Checkout**: `AddressForm.jsx` triggers `/api/v1/orders/create-order`, which opens a Razorpay order and stores a `Pending` record. After payment, `/api/v1/orders/verify-payment` recomputes the HMAC signature server-side and only marks the order `Paid` (and clears the cart) if it matches.
+- **Admin analytics**: `getSalesData` runs a MongoDB aggregation (`$match` → `$group` → `$dateToString`) to produce daily sales totals for the dashboard.
+
+**Request lifecycle at a glance:**
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant F as Frontend
+    participant B as Backend
+    participant M as MongoDB
+    participant Mail as Mailer
+
+    U->>F: Submit signup form
+    F->>B: POST user register
+    B->>M: Create user - isVerified false
+    B->>Mail: Send verification email
+    B-->>F: 201 - user created
+
+    U->>F: Click verification link
+    F->>B: POST user verify
+    B->>M: Set isVerified true
+    B-->>F: 200 - verified
+
+    U->>F: Submit login form
+    F->>B: POST user login
+    B->>M: Check credentials - create session
+    B-->>F: accessToken and refreshToken
+
+    F->>B: GET cart with token
+    B->>M: Load cart for user
+    B-->>F: Cart data
 ```
 
----
+**Auth middleware - how a protected route decides who gets through:**
 
-## 🚀 Installation
+```mermaid
+flowchart TD
+    A[Incoming request] --> B{Authorization header present}
+    B -- No --> C[401 - token missing]
+    B -- Yes --> D{Starts with Bearer}
+    D -- No --> C
+    D -- Yes --> E[Verify JWT with SECRET_KEY]
+    E --> F{Token valid}
+    F -- No --> G[401 - token invalid or expired]
+    F -- Yes --> H[Load user by decoded id]
+    H --> I[Attach user and id to request]
+    I --> J{Route requires admin}
+    J -- No --> K[Call next - controller runs]
+    J -- Yes --> L{Role is admin}
+    L -- No --> M[403 - access denied]
+    L -- Yes --> K
+```
 
-### 📋 Prerequisites
+## 💳 Payment Integration
 
-- ✅ Node.js 18+
-- ✅ MongoDB Atlas account
-- ✅ Cloudinary account
-- ✅ Razorpay account
-- ✅ Google Cloud project with OAuth 2.0 credentials
-- ✅ Gmail account for Nodemailer
+Zeptronics never trusts the client's word that a payment succeeded. The frontend only ever sees a Razorpay order and a payment response — the backend is the only party allowed to decide whether an order becomes `Paid`, and it does that by recomputing the payment signature itself.
 
-### 🖥️ Backend
+```mermaid
+sequenceDiagram
+    participant F as Frontend
+    participant B as Backend
+    participant R as Razorpay
+    participant M as MongoDB
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/zeptronics.git
-   cd zeptronics
-   ```
+    F->>B: POST create-order - amount, products
+    B->>R: Create Razorpay order
+    R-->>B: order id and status
+    B->>M: Save order as Pending
+    B-->>F: Razorpay order details
 
-2. Install backend dependencies:
+    F->>R: Open checkout modal
+    R-->>F: Payment response - order id, payment id, signature
+
+    F->>B: POST verify-payment
+    B->>B: Recompute HMAC signature
+
+    alt Signature matches
+        B->>M: Mark order Paid - clear cart
+        B-->>F: 200 - Payment Successfull
+    else Signature mismatch
+        B->>M: Mark order Failed
+        B-->>F: 400 - Invalid Signature
+    end
+```
+
+Key points:
+- The signature is recomputed server-side with `RAZORPAY_SECRET` using HMAC-SHA256 over `razorpay_order_id|razorpay_payment_id`.
+- A cart is only cleared once the order is confirmed `Paid` — never on the client's say-so.
+- A signature mismatch always flips the order to `Failed` and returns a `400`, regardless of what the frontend claims happened.
+
+## 📦 Installation
+
+1. **Install backend dependencies**
    ```bash
    cd backend
    npm install
    ```
-
-3. Create `backend/.env`:
-   ```env
-   PORT=8000
-   MONGO_URI=mongodb+srv://<user>:<password>@cluster.mongodb.net
-   SECRET_KEY=your_jwt_secret
-   CLIENT_URL=http://localhost:5173
-   GOOGLE_CLIENT_ID=your_google_client_id
-   GOOGLE_CLIENT_SECRET=your_google_client_secret
-   MAIL_USER=your_gmail@gmail.com
-   MAIL_PASS=your_gmail_app_password
-   CLOUDINARY_CLOUD_NAME=your_cloud_name
-   CLOUDINARY_API_KEY=your_api_key
-   CLOUDINARY_API_SECRET=your_api_secret
-   RAZORPAY_KEY_ID=your_razorpay_key_id
-   RAZORPAY_KEY_SECRET=your_razorpay_key_secret
-   ```
-
-4. Start the backend:
-   ```bash
-   npm start
-   ```
-
-### 🌐 Frontend
-
-5. Install frontend dependencies:
+2. **Install frontend dependencies**
    ```bash
    cd ../frontend
    npm install
    ```
-
-6. Start the frontend:
+3. **Configure environment variables** — create `backend/.env`:
    ```bash
+   PORT=8000
+   MONGO_URI=your_mongodb_connection_string
+   MAIL_USER=your_gmail_address
+   MAIL_PASS=your_gmail_app_password
+   SECRET_KEY=your_jwt_secret
+   GOOGLE_CLIENT_ID=your_google_client_id
+   GOOGLE_CLIENT_SECRET=your_google_client_secret
+   CLIENT_URL=http://localhost:5173
+   CLOUD_NAME=your_cloudinary_cloud_name
+   API_KEY=your_cloudinary_api_key
+   API_SECRET=your_cloudinary_api_secret
+   RAZORPAY_KEY_ID=your_razorpay_key_id
+   RAZORPAY_SECRET=your_razorpay_secret
+   SERVER_URL=http://localhost:8000
+   ```
+4. **Run the backend**
+   ```bash
+   cd backend
+   npm start
+   ```
+5. **Run the frontend**
+   ```bash
+   cd frontend
    npm run dev
    ```
-
-🎉 The app runs at `http://localhost:5173`, with the API at `http://localhost:8000`.
-
----
 
 ## 📁 Project Structure
 
 ```text
-zeptronics/
+Zaptronics/
 ├── backend/
 │   ├── server.js
-│   ├── config/
-│   │   └── passport.js
-│   ├── controllers/
-│   │   └── usercontroller.js
-│   ├── database/
-│   │   └── db.js
-│   ├── emailVerify/
-│   │   ├── sendOTPMail.js
-│   │   └── verifyEmail.js
-│   ├── middleware/
-│   │   └── isAuthenticated.js
-│   ├── models/
-│   │   ├── sessionmodel.js
-│   │   └── usermodel.js
-│   └── routes/
-│       ├── authRoutes.js
-│       └── userRoutes.js
+│   ├── config/            # passport.js, razorpay.js
+│   ├── controllers/       # cart, order, product, user
+│   ├── database/          # db.js
+│   ├── emailVerify/       # OTP + verification emails
+│   ├── middleware/        # isAuthenticated.js, multer.js
+│   ├── models/            # cart, order, product, session, user
+│   ├── routes/            # auth, cart, order, product, user
+│   └── utils/             # cloudinary.js, dataUri.js
 └── frontend/
-    ├── public/
     └── src/
         ├── App.jsx
-        ├── assets/
-        ├── components/
-        │   ├── Hero.jsx
-        │   ├── Navbar.jsx
-        │   └── ui/
-        ├── lib/
-        │   └── utils.js
-        └── pages/
-            ├── AuthSuccess.jsx
-            ├── Home.jsx
-            ├── Login.jsx
-            ├── Signup.jsx
-            ├── Verify.jsx
-            └── VerifyEmail.jsx
+        ├── main.jsx
+        ├── components/     # ProductCard, ProtectedRoutes, Navbar, etc.
+        ├── pages/          # Login, Signup, Cart, Products, admin/...
+        └── redux/          # productSlice.js, store.js, userslice.js
 ```
-
----
 
 ## 📡 API Reference
 
-### 📝 POST `/api/v1/user/register`
+| Method | Endpoint | Description | Auth |
+|---|---|---|---|
+| POST | `/api/v1/user/register` | Register + send verification email | No |
+| POST | `/api/v1/user/verify` | Verify account via JWT | Token in header |
+| POST | `/api/v1/user/reverify` | Resend verification email | No |
+| POST | `/api/v1/user/login` | Login, issue tokens | No |
+| POST | `/api/v1/user/logout` | Clear session | Yes |
+| POST | `/api/v1/user/forgot-password` | Send OTP for reset | No |
+| POST | `/api/v1/user/verify-otp/:email` | Verify OTP | No |
+| POST | `/api/v1/user/change-password/:email` | Set new password | No |
+| GET | `/api/v1/user/all-user` | List all users | Admin |
+| GET | `/api/v1/user/get-user/:userId` | Fetch user by ID | Yes |
+| PUT | `/api/v1/user/update/:id` | Update profile | Yes |
+| GET | `/auth/google` | Start Google OAuth | No |
+| GET | `/auth/google/callback` | Google OAuth callback | No |
+| GET | `/auth/me` | Current session profile | Yes |
+| POST | `/api/v1/product/add` | Add product + images | Admin |
+| GET | `/api/v1/product/getallproducts` | List catalog | No |
+| DELETE | `/api/v1/product/delete/:productId` | Delete product | Admin |
+| PUT | `/api/v1/product/update/:productId` | Update product | Admin |
+| GET | `/api/v1/cart/` | Get current cart | Yes |
+| POST | `/api/v1/cart/add` | Add to cart | Yes |
+| PUT | `/api/v1/cart/update` | Change quantity | Yes |
+| DELETE | `/api/v1/cart/remove` | Remove item | Yes |
+| POST | `/api/v1/orders/create-order` | Create Razorpay order | Yes |
+| POST | `/api/v1/orders/verify-payment` | Verify payment signature | Yes |
+| GET | `/api/v1/orders/myorder` | User order history | Yes |
+| GET | `/api/v1/orders/all` | All orders | Admin |
+| GET | `/api/v1/orders/user-order/:userId` | Orders for one user | Admin |
+| GET | `/api/v1/orders/sales` | Sales analytics | Admin |
+
+<details>
+<summary><strong>Example — Register + Login</strong></summary>
 
 ```json
-// Request
-{
-  "firstName": "John",
-  "lastName": "Doe",
-  "email": "john@example.com",
-  "password": "secret123"
-}
+POST /api/v1/user/register
+{ "firstName": "John", "lastName": "Doe", "email": "john@example.com", "password": "Pass@123" }
 
-// Response
-{
-  "success": true,
-  "message": "User registered Successfully",
-  "user": {
-    "firstName": "John",
-    "lastName": "Doe",
-    "email": "john@example.com",
-    "isVerified": false,
-    "isLoggedIn": false
-  }
-}
+201 →
+{ "success": true, "message": "User registered Successfully",
+  "user": { "_id": "64f2c1eabc1234", "email": "john@example.com", "isVerified": false } }
 ```
-
-### ✅ POST `/api/v1/user/verify`
 
 ```json
-// Header: Authorization: Bearer <registration-token>
+POST /api/v1/user/login
+{ "email": "john@example.com", "password": "Pass@123" }
 
-// Response
-{
-  "success": true,
-  "message": "Email verified successfully"
-}
+200 →
+{ "success": true, "message": "Welcome back John",
+  "user": { "_id": "64f2c1eabc1234", "role": "user" },
+  "accessToken": "jwt-access-token", "refreshToken": "jwt-refresh-token" }
 ```
+</details>
 
-### 🔑 POST `/api/v1/user/login`
+<details>
+<summary><strong>Example — Cart operations</strong></summary>
 
 ```json
-// Request
-{
-  "email": "john@example.com",
-  "password": "secret123"
-}
+POST /api/v1/cart/add
+{ "productId": "64f2c1eabc5678" }
 
-// Response
-{
-  "success": true,
-  "message": "Welcome back John",
-  "user": { "firstName": "John", "isVerified": true, "isLoggedIn": true },
-  "accessToken": "<jwt>",
-  "refreshToken": "<jwt>"
-}
+200 →
+{ "success": true, "message": "Product added successfully",
+  "cart": { "items": [{ "productId": "64f2c1eabc5678", "quantity": 1, "price": 1299 }], "totalPrice": 1299 } }
 ```
+</details>
 
-### 🔓 POST `/api/v1/user/forgot-password`
+<details>
+<summary><strong>Example — Checkout + payment verification</strong></summary>
 
 ```json
-// Request
-{ "email": "john@example.com" }
+POST /api/v1/orders/create-order
+{ "products": [{ "productId": "64f2c1eabc5678", "quantity": 1 }],
+  "amount": 2199, "tax": 132, "shipping": 49, "currency": "INR" }
 
-// Response
-{ "success": true, "message": "OTP sent to email successfully." }
+200 →
+{ "success": true,
+  "order": { "id": "order_abc123", "amount": 219900, "currency": "INR", "status": "created" },
+  "dbOrder": { "_id": "64f2c1eabc9876", "status": "Pending", "razorpayOrderId": "order_abc123" } }
 ```
-
-### 🔢 POST `/api/v1/user/verify-otp/:email`
 
 ```json
-// Request
-{ "otp": "123456" }
+POST /api/v1/orders/verify-payment
+{ "razorpay_order_id": "order_abc123", "razorpay_payment_id": "pay_xyz789",
+  "razorpay_signature": "signature-hash" }
 
-// Response
-{ "success": true, "message": "OTP verified Successfully" }
+200 →
+{ "success": true, "message": "Payment Successfull",
+  "order": { "_id": "64f2c1eabc9876", "status": "Paid" } }
 ```
+</details>
 
-### 🔄 POST `/api/v1/user/change-password/:email`
+## 🩹 Troubleshooting
 
-```json
-// Request
-{ "newPassword": "new-secret-123", "confirmPassword": "new-secret-123" }
-
-// Response
-{ "success": true, "message": "Password changed successfully" }
-```
-
-### 🌐 GET `/auth/google`
-
-Initiates Google OAuth flow. No request body required. Passport redirects the user to Google's consent screen.
-
-### 👤 GET `/auth/me`
-
-```json
-// Header: Authorization: Bearer <access-token>
-
-// Response
-{ "success": true, "user": { ... } }
-```
-
----
-
-## 🛠️ Troubleshooting
+**Quick diagnosis — start here:**
 
 ```mermaid
 flowchart TD
-    Start[Setup fails - where?]
+    A[Setup issue] --> B{CORS error in browser console}
+    B -- Yes --> C[Check FRONTEND_URL in backend env file]
+    C --> D[Match it to your frontend origin]
 
-    Start --> A{MongoDB connect error?}
-    A -- Yes --> A1[Check MONGO_URI in backend/.env]
-    A1 --> A2[Format must be: mongodb+srv://user:pass@cluster.mongodb.net]
-    A2 --> A3[db.js appends /zeptronics - do not include DB name in URI]
+    A --> E{Mongoose connection error on startup}
+    E -- Yes --> F[Check MONGO_URI value]
+    F --> G[Confirm Atlas cluster is reachable]
 
-    Start --> B{Email not sent?}
-    B -- Yes --> B1[Check MAIL_USER and MAIL_PASS in backend/.env]
-    B1 --> B2[Use a Gmail App Password, not your account password]
-    B2 --> B3[Enable 2FA in Google account first, then generate App Password]
-
-    Start --> C{Google login fails?}
-    C -- Yes --> C1[Verify GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET]
-    C1 --> C2[Check callback URL in Google Cloud Console]
-    C2 --> C3[Must be exactly: http://localhost:8000/auth/google/callback]
+    A --> H{Invalid Signature on payment}
+    H -- Yes --> I[Compare RAZORPAY_SECRET to dashboard]
+    I --> J[Confirm test and live keys are not mixed]
 ```
 
 <details>
-<summary>🍃 MongoDB never connects</summary>
+<summary><strong>"Not allowed by CORS: http://localhost:5173"</strong></summary>
 
-Set `MONGO_URI` to a valid MongoDB Atlas connection string in `backend/.env`. The app appends `/zeptronics` to it in `backend/database/db.js`, so do not include a database name in the base URI. A correct value looks like:
+`backend/server.js` only accepts origins listed in `allowedOrigins`. If your frontend runs on a different port, or `FRONTEND_URL` doesn't match, requests get blocked before they reach any controller.
 
+**Fix:**
+```bash
+# backend/.env
+FRONTEND_URL=http://localhost:5173
 ```
-MONGO_URI=mongodb+srv://myuser:mypassword@cluster0.abcde.mongodb.net
-```
-
 </details>
 
 <details>
-<summary>📧 Verification or password reset email is not delivered</summary>
+<summary><strong>"MongoDB connection failed: MongooseServerSelectionError"</strong></summary>
 
-Set `MAIL_USER` and `MAIL_PASS` in `backend/.env`. `MAIL_PASS` must be a **Gmail App Password**, not your regular Gmail password. To generate one: enable 2-Step Verification on your Google account, then go to Google Account > Security > App Passwords and generate a password for "Mail".
+`backend/database/db.js` connects using `process.env.MONGO_URI`. A missing, malformed, or unreachable connection string prevents the app from starting.
 
+**Fix:**
+```bash
+cd backend
+node -e "console.log(process.env.MONGO_URI)"
+```
+Update `MONGO_URI` in `backend/.env` with a valid MongoDB Atlas connection string.
 </details>
 
 <details>
-<summary>🌐 Google OAuth redirects back with an error or loops</summary>
+<summary><strong>"Invalid Signature" on payment verification</strong></summary>
 
-Confirm `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, and `CLIENT_URL=http://localhost:5173` are set in `backend/.env`. In Google Cloud Console, the authorized redirect URI must be exactly `http://localhost:8000/auth/google/callback` — this must match the callback registered in `backend/config/passport.js`.
+`orderController.js` recomputes the Razorpay HMAC using `RAZORPAY_SECRET`. A mismatch between your backend secret and your Razorpay dashboard key (test vs. live) causes every verification to fail.
 
+**Fix:**
+```bash
+RAZORPAY_KEY_ID=your_key_id
+RAZORPAY_SECRET=your_secret
+```
+Confirm both values match the same mode (test or live) in the Razorpay dashboard.
 </details>
-
----
 
 ## 🗺️ Roadmap
 
-- [ ] 🔒 Add protected frontend routes for authenticated pages
-- [ ] 🌍 Replace hardcoded `localhost` API URLs with a shared env-based client config
-- [ ] 💬 Improve password reset and auth error handling in the UI
-- [ ] 👤 Standardize the user profile and admin access flow
-- [ ] 🧪 Add automated tests for controllers and middleware
+- [ ] Add a dedicated `.env.example` file
+- [ ] Backend unit/integration tests for controllers and auth flows
+- [ ] Frontend component tests (login, signup, cart, admin)
+- [ ] Inventory management + stock reduction at checkout
+- [ ] Order cancellation, refunds, payment status tracking
+- [ ] Refresh-token rotation
+- [ ] Rate limiting + request validation on public routes
+- [ ] Consistent error handling across controllers
+- [ ] File type/size validation before Cloudinary upload
+- [ ] Production deployment docs for frontend and backend
 
----
+## 🔒 Privacy & Safety Note
+
+This project handles payment data (Razorpay) and personal information (email, address, phone). Never commit `.env` files or real API secrets to version control, and always verify Razorpay signatures server-side before marking an order paid — never trust client-reported payment status alone.
 
 ## 🤝 Contributing
 
 ```bash
-# 1. Fork the repo and create your branch
-git checkout -b feature/your-change
-
-# 2. Make your changes, then stage them
-git add .
-
-# 3. Commit with a clear message
-git commit -m "Describe your change"
-
-# 4. Push and open a pull request
-git push origin feature/your-change
+git clone <repository-url>
+cd Zaptronics
+git checkout -b feature/my-change
 ```
 
-💡 Please keep PRs focused on a single concern and describe what you changed and why.
+Make your change in `backend/` or `frontend/`, then:
+
+```bash
+git status
+git add .
+git commit -m "Add my feature"
+git push origin feature/my-change
+```
+
+Open a pull request describing what changed, why, which routes/screens were affected, and any new environment variables. Before submitting, run:
+
+```bash
+cd backend && npm start
+cd ../frontend && npm run build
+```
+
+## 📄 License & Contact
+
+No license file is currently present in this repository, so no open-source license is declared. For repository questions, use the GitHub issue tracker or the maintainer contact configured outside this codebase.
 
 ---
 
-## 📄 License & 📬 Contact
-
-**License:** ISC — see `backend/package.json`.
-
-No maintainer contact is listed in the repository. Open an issue for questions or bug reports.
-
----
-
-[🔝 Back to top](#-zeptronics)
+[⬆ Back to top](#zeptronics-)
