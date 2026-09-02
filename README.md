@@ -63,13 +63,13 @@
 
 ---
 
-## 💡 The Problem
+# 💡 The Problem
 
 Most e-commerce sites are built for "sell anything," which means electronics shoppers get generic categories, weak filtering, and a checkout flow that was never designed around technical products or admin-heavy catalogs. 
 
 Zeptronics exists because electronics deserve their own storefront: real product management, verified accounts, a cart that behaves, and a payment flow that you can actually trust.
 
-## 🚀 What It Does
+# 🚀 What It Does
 
 | Feature | Description |
 |---|---|
@@ -84,7 +84,7 @@ Zeptronics exists because electronics deserve their own storefront: real product
 | 🛡️ Route protection | User-only and admin-only routes (`ProtectedRoutes.jsx`) |
 
 
-## 🧩 Architecture
+# 🧩 Architecture
 
 ```mermaid
 graph LR
@@ -124,7 +124,7 @@ graph LR
 
 Every authenticated request passes through the JWT middleware before it ever reaches a controller, and every controller talks to exactly one of the four external dependencies above — never directly to the frontend.
 
-## 🛠️ Tech Stack
+# 🛠️ Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -138,7 +138,7 @@ Every authenticated request passes through the JWT middleware before it ever rea
 | 💳 Payments | Razorpay |
 | 📧 Email | Nodemailer (Gmail SMTP) |
 
-## 📸 Screenshots
+# 📸 Screenshots
 
 
 ```md
@@ -147,7 +147,7 @@ Every authenticated request passes through the JWT middleware before it ever rea
 ![Admin dashboard](./docs/screenshots/dashboard.png)
 ```
 
-## ⚙️ How It Works
+# ⚙️ How It Works
 
 - **Signup → Verify**: `Signup.jsx` posts to `/api/v1/user/register`, which hashes the password, creates the user, and emails a JWT verification link. `VerifyEmail.jsx` posts that token to `/api/v1/user/verify`, which flips `isVerified` to `true`.
 - **Login**: `/api/v1/user/login` checks credentials, issues `accessToken` + `refreshToken`, and replaces any existing session in the `Session` collection.
@@ -158,7 +158,7 @@ Every authenticated request passes through the JWT middleware before it ever rea
 
 <br/> 
 
-**Request lifecycle at a glance:**
+### Request lifecycle at a glance: 
 
 
 ```mermaid
@@ -191,7 +191,7 @@ sequenceDiagram
 ```
 <br/>
 
-**Auth middleware - how a protected route decides who gets through:**
+### Auth middleware - how a protected route decides who gets through:
 
 
 ```mermaid
@@ -208,7 +208,7 @@ flowchart TD
     H -- Yes --> G
 ```
 
-## 💳 Payment Integration
+# 💳 Payment Integration
 
 Zeptronics never trusts the client's word that a payment succeeded. The frontend only ever sees a Razorpay order and a payment response — the backend is the only party allowed to decide whether an order becomes `Paid`, and it does that by recomputing the payment signature itself.
 
@@ -250,7 +250,7 @@ Key points:
 - A signature mismatch always flips the order to `Failed` and returns a `400`, regardless of what the frontend claims happened.
 
 
-## 📦 Installation
+# 📦 Installation
 
 1. **Install backend dependencies**
    ```bash
@@ -290,7 +290,7 @@ Key points:
    npm run dev
    ```
 
-## 📁 Project Structure
+# 📁 Project Structure
 
 ```text
 Zaptronics/
@@ -313,7 +313,7 @@ Zaptronics/
         └── redux/          # productSlice.js, store.js, userslice.js
 ```
 
-## 📡 API Reference
+# 📡 API Reference
 
 | Method | Endpoint | Description | Auth |
 |---|---|---|---|
@@ -407,7 +407,7 @@ POST /api/v1/orders/verify-payment
 ```
 </details>
 
-## 🩹 Troubleshooting
+# 🩹 Troubleshooting
 
 **Quick diagnosis — start here:**
 
@@ -465,11 +465,11 @@ Confirm both values match the same mode (test or live) in the Razorpay dashboard
 </details>
 
 
-## 🔒 Privacy & Safety Note
+# 🔒 Privacy & Safety Note
 
 This project handles payment data (Razorpay) and personal information (email, address, phone). Never commit `.env` files or real API secrets to version control, and always verify Razorpay signatures server-side before marking an order paid — never trust client-reported payment status alone.
 
-## 🤝 Contributing
+# 🤝 Contributing
 
 ```bash
 git clone <repository-url>
@@ -493,7 +493,7 @@ cd backend && npm start
 cd ../frontend && npm run build
 ```
 
-## 📄 License & Contact
+# 📄 License & Contact
 
 No license file is currently present in this repository, so no open-source license is declared. For repository questions, use the GitHub issue tracker or the maintainer contact configured outside this codebase.
 
