@@ -4,6 +4,8 @@
 
 > *🛒 "A full-stack electronics marketplace — browse, cart, verify, and check out — without the clutter of a generic retail template."*
 
+</div>
+
 <br/>
 
 
@@ -57,9 +59,13 @@
 
 <br/>
 
+<div align="center">
 
-**🚀 Jump to:** [✨ Features](#-what-it-does) · [🏗️ Architecture](#-architecture) · [⚙️ How It Works](#-how-it-works) <br/>· [💳 Payment Integration](#-payment-integration) · [📦 Installation](#-installation) · [📚 API Reference](#-api-reference) <br/> · [🛠️ Troubleshooting](#-troubleshooting) · [🤝 Contributing](#-contributing)
+[🚀 Features](#-what-it-does) · [🏗️ Architecture](#-architecture) · [⚙️ How It Works](#-how-it-works) 
+[💳 Payment Integration](#-payment-integration) · [📦 Installation](#-installation) · [📚 API Reference](#-api-reference) 
+[🛠️ Troubleshooting](#-troubleshooting) · [🤝 Contributing](#-contributing)
 
+</div>
 
 ---
 
@@ -498,5 +504,8 @@ cd ../frontend && npm run build
 No license file is currently present in this repository, so no open-source license is declared. For repository questions, use the GitHub issue tracker or the maintainer contact configured outside this codebase.
 
 ---
+<div align="center">
 
 [🔝 Back to top](#-zeptronics)
+
+</div>
