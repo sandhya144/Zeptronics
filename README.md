@@ -1,72 +1,88 @@
-# Zeptronics ⚡🛒
+<div align="center">
 
-**Frontend**
-![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-B73BFE?style=flat-square&logo=vite&logoColor=white)
-![React Router](https://img.shields.io/badge/React_Router-CA4245?style=flat-square&logo=reactrouter&logoColor=white)
-![Axios](https://img.shields.io/badge/Axios-5A29E4?style=flat-square&logo=axios&logoColor=white)
+# 🛒 Zeptronics⚡
 
-**State**
-![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-764ABC?style=flat-square&logo=redux&logoColor=white)
-![Redux Persist](https://img.shields.io/badge/Redux_Persist-764ABC?style=flat-square)
+> *🛒 "A full-stack electronics marketplace — browse, cart, verify, and check out — without the clutter of a generic retail template."*
 
-**UI**
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
-![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-000000?style=flat-square&logo=shadcnui&logoColor=white)
-![Lucide React](https://img.shields.io/badge/Lucide_React-F56565?style=flat-square&logo=lucide&logoColor=white)
-![Sonner](https://img.shields.io/badge/Sonner-1C1C1C?style=flat-square)
+<br/>
 
-**Backend**
-![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?style=flat-square&logo=node.js&logoColor=white)
-![Express](https://img.shields.io/badge/Express-5-000000?style=flat-square&logo=express&logoColor=white)
 
-**Database**
-![MongoDB Atlas](https://img.shields.io/badge/MongoDB_Atlas-47A248?style=flat-square&logo=mongodb&logoColor=white)
-![Mongoose](https://img.shields.io/badge/Mongoose-880000?style=flat-square)
+<div align="center">
 
-**Auth**
-![JWT](https://img.shields.io/badge/JWT-000000?style=flat-square&logo=jsonwebtokens&logoColor=white)
-![bcryptjs](https://img.shields.io/badge/bcryptjs-338833?style=flat-square)
-![Passport.js](https://img.shields.io/badge/Passport.js-34E27A?style=flat-square&logo=passport&logoColor=white)
-![Google OAuth](https://img.shields.io/badge/Google_OAuth-4285F4?style=flat-square&logo=google&logoColor=white)
+<!-- Frontend -->
+<img src="https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=white">
+<img src="https://img.shields.io/badge/Vite-B73BFE?style=flat-square&logo=vite&logoColor=white">
+<img src="https://img.shields.io/badge/React_Router-CA4245?style=flat-square&logo=reactrouter&logoColor=white">
+<img src="https://img.shields.io/badge/Axios-5A29E4?style=flat-square&logo=axios&logoColor=white">
 
-**Uploads**
-![Multer](https://img.shields.io/badge/Multer-FF6600?style=flat-square)
-![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=flat-square&logo=cloudinary&logoColor=white)
+<!-- State Management -->
+<img src="https://img.shields.io/badge/Redux_Toolkit-764ABC?style=flat-square&logo=redux&logoColor=white">
+<img src="https://img.shields.io/badge/Redux_Persist-764ABC?style=flat-square">
 
-**Payments**
-![Razorpay](https://img.shields.io/badge/Razorpay-0C2451?style=flat-square&logo=razorpay&logoColor=white)
+<!-- Styling & UI -->
+<img src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white">
+<img src="https://img.shields.io/badge/shadcn%2Fui-000000?style=flat-square&logo=shadcnui&logoColor=white">
+<img src="https://img.shields.io/badge/Lucide_React-F56565?style=flat-square&logo=lucide&logoColor=white">
+<img src="https://img.shields.io/badge/Sonner-1C1C1C?style=flat-square">
 
-**Email**
-![Nodemailer](https://img.shields.io/badge/Nodemailer-22B573?style=flat-square)
-![Gmail SMTP](https://img.shields.io/badge/Gmail_SMTP-EA4335?style=flat-square&logo=gmail&logoColor=white)
+<!-- Backend -->
+<img src="https://img.shields.io/badge/Node.js-43853D?style=flat-square&logo=node.js&logoColor=white">
+<img src="https://img.shields.io/badge/Express-5-000000?style=flat-square&logo=express&logoColor=white">
 
-**Project**
-![License](https://img.shields.io/badge/License-none-lightgrey?style=flat-square)
+<!-- Database -->
+<img src="https://img.shields.io/badge/MongoDB_Atlas-47A248?style=flat-square&logo=mongodb&logoColor=white">
+<img src="https://img.shields.io/badge/Mongoose-880000?style=flat-square">
 
-*A full-stack electronics marketplace — browse, cart, verify, and check out — without the clutter of a generic retail template.*
+<!-- Auth -->
+<img src="https://img.shields.io/badge/JWT-000000?style=flat-square&logo=jsonwebtokens&logoColor=white">
+<img src="https://img.shields.io/badge/bcryptjs-338833?style=flat-square">
+<img src="https://img.shields.io/badge/Passport.js-34E27A?style=flat-square&logo=passport&logoColor=white">
+<img src="https://img.shields.io/badge/Google_OAuth-4285F4?style=flat-square&logo=google&logoColor=white">
 
-**Jump to:** [Features](#-what-it-does) · [Architecture](#-architecture) · [How It Works](#-how-it-works) · [Payment Integration](#-payment-integration) · [Installation](#-installation) · [API Reference](#-api-reference) · [Troubleshooting](#-troubleshooting) · [Contributing](#-contributing)
+<!-- File Uploads & Media -->
+<img src="https://img.shields.io/badge/Multer-FF6600?style=flat-square">
+<img src="https://img.shields.io/badge/Cloudinary-3448C5?style=flat-square&logo=cloudinary&logoColor=white">
+
+<!-- Payments -->
+<img src="https://img.shields.io/badge/Razorpay-0C2451?style=flat-square&logo=razorpay&logoColor=white">
+
+<!-- Email -->
+<img src="https://img.shields.io/badge/Nodemailer-22B573?style=flat-square">
+<img src="https://img.shields.io/badge/Gmail_SMTP-EA4335?style=flat-square&logo=gmail&logoColor=white">
+
+<!-- License -->
+<img src="https://img.shields.io/badge/License-none-lightgrey?style=flat-square">
+
+</div>
+
+<br/>
+
+
+**🚀 Jump to:** [✨ Features](#-what-it-does) · [🏗️ Architecture](#-architecture) · [⚙️ How It Works](#-how-it-works) <br/>· [💳 Payment Integration](#-payment-integration) · [📦 Installation](#-installation) · [📚 API Reference](#-api-reference) <br/> · [🛠️ Troubleshooting](#-troubleshooting) · [🤝 Contributing](#-contributing)
+
 
 ---
 
 ## 💡 The Problem
 
-Most e-commerce boilerplates are built for "sell anything," which means electronics shoppers get generic categories, weak filtering, and a checkout flow that was never designed around technical products or admin-heavy catalogs. Zeptronics exists because electronics deserve their own storefront: real product management, verified accounts, a cart that behaves, and a payment flow you can actually trust.
+Most e-commerce sites are built for "sell anything," which means electronics shoppers get generic categories, weak filtering, and a checkout flow that was never designed around technical products or admin-heavy catalogs. 
+
+Zeptronics exists because electronics deserve their own storefront: real product management, verified accounts, a cart that behaves, and a payment flow that you can actually trust.
 
 ## 🚀 What It Does
 
 | Feature | Description |
 |---|---|
-| Account verification | Email verification via JWT + Nodemailer (`usercontroller.js`, `verifyEmail.js`) |
-| Full auth suite | Login, logout, password reset, OTP verification, password change |
-| Google OAuth | Passport.js-based Google login (`authRoutes.js`) |
-| Product CRUD | Admin product management with Cloudinary image uploads (`cloudinary.js`) |
-| Cart engine | Add / update quantity / remove, fully scoped to the authenticated user |
-| Payments | Razorpay order creation + signature verification (`orderController.js`) |
-| Order history & analytics | Per-user order history plus admin sales aggregation in MongoDB |
-| Redux-backed state | Session and cart persistence across the app |
-| Route protection | User-only and admin-only routes (`ProtectedRoutes.jsx`) |
+| ✉️ Account verification | Email verification via JWT + Nodemailer (`usercontroller.js`, `verifyEmail.js`) |
+| 🔐 Full auth suite | Login, logout, password reset, OTP verification, password change |
+| 🔑 Google OAuth | Passport.js-based Google login (`authRoutes.js`) |
+| 🛍️ Product CRUD | Admin product management with Cloudinary image uploads (`cloudinary.js`) |
+| 🛒 Cart engine | Add / update quantity / remove, fully scoped to the authenticated user |
+| 💳 Payments | Razorpay order creation + signature verification (`orderController.js`) |
+| 📦 Order history & analytics | Per-user order history plus admin sales aggregation in MongoDB |
+| ⚛️ Redux-backed state | Session and cart persistence across the app |
+| 🛡️ Route protection | User-only and admin-only routes (`ProtectedRoutes.jsx`) |
+
 
 ## 🧩 Architecture
 
@@ -104,6 +120,7 @@ graph LR
     Ctrl --> Pay
     Ctrl --> Mail
 ```
+<br/>
 
 Every authenticated request passes through the JWT middleware before it ever reaches a controller, and every controller talks to exactly one of the four external dependencies above — never directly to the frontend.
 
@@ -111,19 +128,18 @@ Every authenticated request passes through the JWT middleware before it ever rea
 
 | Layer | Technology |
 |---|---|
-| Frontend | React 19, Vite, React Router, Axios |
-| State management | Redux Toolkit, Redux Persist |
-| UI | Tailwind CSS 4, shadcn/ui, Lucide React, Sonner |
-| Backend | Node.js, Express 5 |
-| Database | MongoDB Atlas, Mongoose |
-| Authentication | JWT, bcryptjs, Passport, passport-google-oauth20 |
-| File upload | Multer, Cloudinary |
-| Payments | Razorpay |
-| Email | Nodemailer (Gmail SMTP) |
+| 🖥️ Frontend | React 19, Vite, React Router, Axios |
+| 🧠 State management | Redux Toolkit, Redux Persist |
+| 🎨 UI | Tailwind CSS 4, shadcn/ui, Lucide React, Sonner |
+| ⚙️ Backend | Node.js, Express 5 |
+| 🗄️ Database | MongoDB Atlas, Mongoose |
+| 🔐 Authentication | JWT, bcryptjs, Passport, passport-google-oauth20 |
+| 📤 File upload | Multer, Cloudinary |
+| 💳 Payments | Razorpay |
+| 📧 Email | Nodemailer (Gmail SMTP) |
 
 ## 📸 Screenshots
 
-> Add real screenshots here once available — placeholders below.
 
 ```md
 ![Home page](./docs/screenshots/home.png)
@@ -140,7 +156,10 @@ Every authenticated request passes through the JWT middleware before it ever rea
 - **Checkout**: `AddressForm.jsx` triggers `/api/v1/orders/create-order`, which opens a Razorpay order and stores a `Pending` record. After payment, `/api/v1/orders/verify-payment` recomputes the HMAC signature server-side and only marks the order `Paid` (and clears the cart) if it matches.
 - **Admin analytics**: `getSalesData` runs a MongoDB aggregation (`$match` → `$group` → `$dateToString`) to produce daily sales totals for the dashboard.
 
+<br/> 
+
 **Request lifecycle at a glance:**
+
 
 ```mermaid
 sequenceDiagram
@@ -170,30 +189,30 @@ sequenceDiagram
     B->>M: Load cart for user
     B-->>F: Cart data
 ```
+<br/>
 
 **Auth middleware - how a protected route decides who gets through:**
 
+
 ```mermaid
 flowchart TD
-    A[Incoming request] --> B{Authorization header present}
-    B -- No --> C[401 - token missing]
-    B -- Yes --> D{Starts with Bearer}
-    D -- No --> C
-    D -- Yes --> E[Verify JWT with SECRET_KEY]
-    E --> F{Token valid}
-    F -- No --> G[401 - token invalid or expired]
-    F -- Yes --> H[Load user by decoded id]
-    H --> I[Attach user and id to request]
-    I --> J{Route requires admin}
-    J -- No --> K[Call next - controller runs]
-    J -- Yes --> L{Role is admin}
-    L -- No --> M[403 - access denied]
-    L -- Yes --> K
+    A[Request] --> B{JWT present?}
+    B -- No --> C[401 Unauthorized]
+    B -- Yes --> D[Verify JWT]
+    D -- Invalid --> C
+    D -- Valid --> E[Load User]
+    E --> F{Admin route?}
+    F -- No --> G[Controller]
+    F -- Yes --> H{Is Admin?}
+    H -- No --> I[403 Forbidden]
+    H -- Yes --> G
 ```
 
 ## 💳 Payment Integration
 
 Zeptronics never trusts the client's word that a payment succeeded. The frontend only ever sees a Razorpay order and a payment response — the backend is the only party allowed to decide whether an order becomes `Paid`, and it does that by recomputing the payment signature itself.
+
+<br/>
 
 ```mermaid
 sequenceDiagram
@@ -223,10 +242,13 @@ sequenceDiagram
     end
 ```
 
+<br/>
+
 Key points:
 - The signature is recomputed server-side with `RAZORPAY_SECRET` using HMAC-SHA256 over `razorpay_order_id|razorpay_payment_id`.
 - A cart is only cleared once the order is confirmed `Paid` — never on the client's say-so.
 - A signature mismatch always flips the order to `Failed` and returns a `400`, regardless of what the frontend claims happened.
+
 
 ## 📦 Installation
 
@@ -442,18 +464,6 @@ RAZORPAY_SECRET=your_secret
 Confirm both values match the same mode (test or live) in the Razorpay dashboard.
 </details>
 
-## 🗺️ Roadmap
-
-- [ ] Add a dedicated `.env.example` file
-- [ ] Backend unit/integration tests for controllers and auth flows
-- [ ] Frontend component tests (login, signup, cart, admin)
-- [ ] Inventory management + stock reduction at checkout
-- [ ] Order cancellation, refunds, payment status tracking
-- [ ] Refresh-token rotation
-- [ ] Rate limiting + request validation on public routes
-- [ ] Consistent error handling across controllers
-- [ ] File type/size validation before Cloudinary upload
-- [ ] Production deployment docs for frontend and backend
 
 ## 🔒 Privacy & Safety Note
 
@@ -489,4 +499,4 @@ No license file is currently present in this repository, so no open-source licen
 
 ---
 
-[⬆ Back to top](#zeptronics-)
+[🔝 Back to top](#-zeptronics)
