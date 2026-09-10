@@ -73,7 +73,7 @@ const router = createBrowserRouter([
   },
    {
     path: 'address',
-    element:  <ProtectedRoute userOnly={true}>  <AddressForm/>  </ProtectedRoute>
+    element:  <ProtectedRoute userOnly={true}>  <Navbar/>  <AddressForm/>  </ProtectedRoute>
   },
   {
     path: 'orders-success',
