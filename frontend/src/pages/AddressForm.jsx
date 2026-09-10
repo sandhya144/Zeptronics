@@ -133,7 +133,7 @@ const handlePayment = async()=>{
 }
 
   return (
-    <div className='mt-7 max-w-7xl mx-auto grid place-items-center p-10'>
+    <div className='max-w-7xl mx-auto grid place-items-center p-10'>
       <div className='grid grid-cols-2 items-start gap-20 mt-10 max-w-7xl mx-auto'>
         <div className='space-y-4 p-6 bg-white'>
           {
