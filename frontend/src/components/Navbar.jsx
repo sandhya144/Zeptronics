@@ -24,23 +24,61 @@ const Navbar = () => {
 
 
 
-  const logoutHandler = async () => {
-  try {
-    const res = await axios.post(`${import.meta.env.VITE_URL}/api/v1/user/logout`, {}, {
-      headers: { Authorization: `Bearer ${accessToken}` }
-    });
+//   const logoutHandler = async () => {
+//   try {
+//     const res = await axios.post(`${import.meta.env.VITE_URL}/api/v1/user/logout`, {}, {
+//       headers: { Authorization: `Bearer ${accessToken}` }
+//     });
 
-    if (res.data.success) {
-      dispatch(logout());          // clear user slice
-      dispatch(clearCart());       // clear cart slice
-      localStorage.removeItem('accessToken');   // ← THIS LINE — you're still missing it 
-      toast.success(res.data.message);
-      navigate('/login');          // avoid stale UI on current page
+//     if (res.data.success) {
+//       dispatch(logout());          // clear user slice
+//       dispatch(clearCart());       // clear cart slice
+//       localStorage.removeItem('accessToken');   // ← THIS LINE — you're still missing it 
+//       toast.success(res.data.message);
+//       navigate('/login');          // avoid stale UI on current page
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+
+const logoutHandler = async () => {
+    try {
+        const accessToken = localStorage.getItem('accessToken');
+
+        if (accessToken) {
+            const res = await axios.post(
+                `${import.meta.env.VITE_URL}/api/v1/user/logout`,
+                {},
+                {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`
+                    }
+                }
+            );
+
+            if (res.data.success) {
+                toast.success(res.data.message);
+            }
+        }
+
+    } catch (error) {
+        console.log(
+            "Logout backend error:",
+            error.response?.data || error.message
+        );
+    } finally {
+        // Always logout locally, even if JWT expired
+        localStorage.removeItem('accessToken');
+
+        dispatch(logout());
+        dispatch(clearCart());
+
+        navigate('/login');
     }
-  } catch (error) {
-    console.log(error);
-  }
-}
+};
+
+
 
 
   return (

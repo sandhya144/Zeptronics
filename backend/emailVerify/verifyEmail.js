@@ -1,42 +1,106 @@
-import nodemailer from 'nodemailer';
-import 'dotenv/config';
 
-export const verifyEmail =(token, email) => {
-    const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: process.env.MAIL_USER,
-        pass: process.env.MAIL_PASS,
+import "dotenv/config";
+import transporter from "./mailer.js";
+
+
+export const verifyEmail = async (token, email) => {
+    console.log("🔥 verifyEmail CALLED");
+    console.log("📧 Recipient:", email);
+
+    try {
+        const verificationLink =
+            `${process.env.CLIENT_URL}/verify/${token}`;
+
+        console.log("🔗 Verification link:", verificationLink);
+
+        const mailConfigurations = {
+            from: `"Zeptronics" <${process.env.MAIL_USER}>`,
+
+            to: email,
+
+            subject: "Verify Your Zeptronics Email",
+
+            text: `
+You have recently registered on Zeptronics.
+
+Please verify your email by clicking this link:
+
+${verificationLink}
+
+This verification link will expire in 10 minutes.
+
+If you did not create this account, you can ignore this email.
+            `,
+
+            html: `
+                <div style="
+                    font-family: Arial, sans-serif;
+                    max-width: 600px;
+                    margin: auto;
+                    padding: 20px;
+                ">
+
+                    <h2>Email Verification</h2>
+
+                    <p>Hi!</p>
+
+                    <p>
+                        You have recently registered on Zeptronics.
+                    </p>
+
+                    <p>
+                        Please click the button below to verify your email:
+                    </p>
+
+                    <a
+                        href="${verificationLink}"
+                        style="
+                            display: inline-block;
+                            padding: 12px 24px;
+                            background: #007bff;
+                            color: white;
+                            text-decoration: none;
+                            border-radius: 5px;
+                        "
+                    >
+                        Verify Email
+                    </a>
+
+                    <p style="margin-top: 20px;">
+                        This verification link will expire in 10 minutes.
+                    </p>
+
+                    <p>
+                        If you did not create this account,
+                        you can safely ignore this email.
+                    </p>
+
+                    <p>Thanks!</p>
+
+                    <p>
+                        <strong>Zeptronics Team</strong>
+                    </p>
+
+                </div>
+            `,
+        };
+
+        const info = await transporter.sendMail(mailConfigurations);
+
+        console.log("✅ Verification email sent:", info.messageId);
+
+        return {
+            success: true,
+            messageId: info.messageId,
+        };
+
+    } catch (error) {
+
+        console.error("❌ EMAIL ERROR:", error);
+
+        return {
+            success: false,
+            error: error.message,
+        };
     }
-});
-
-const mailConfigurations = {
-
-    // It should be a string of sender/server email
-    from: process.env.MAIL_USER,
-    to: email,
-    subject: 'Email Verification',
-    
-    // This would be the text of email body (frontend url)
-    text: `Hi! There, You have recently visited 
-           our website and entered your email.
-           Please follow the given link to verify your email
-           http://localhost:5173/verify/${token} 
-           Thanks`
 };
-
-// transporter.sendMail(mailConfigurations, function(error, info){
-//     if (error) throw Error(error);
-//     console.log('Email Sent Successfully');
-//     console.log(info);
-// });
-
-transporter.sendMail(mailConfigurations, function(error, info){
-    if (error) {
-        console.log(error);
-        return;
-    }
-    console.log('Email Sent Successfully');
-});
-
-}

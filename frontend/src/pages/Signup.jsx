@@ -44,8 +44,11 @@ const signup = () => {
     try {
       setLoading(true);
 
+      // const res = await axios.post(
+      //   `${import.meta.env.VITE_URL}/api/v1/user/register`,
+      
       const res = await axios.post(
-        `${import.meta.env.VITE_URL}/api/v1/user/register`,
+        "http://localhost:8000/api/v1/user/register",
         formData,
         {
           headers: {

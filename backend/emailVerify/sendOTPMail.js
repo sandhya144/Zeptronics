@@ -1,38 +1,51 @@
-import nodemailer from 'nodemailer';
-import 'dotenv/config';
+
+import "dotenv/config";
+import transporter from "./mailer.js";
 
 export const sendOTPMail = async (otp, email) => {
-    console.log("MAIL_USER:", process.env.MAIL_USER);
-    console.log("MAIL_PASS:", process.env.MAIL_PASS?.length);
-    const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: process.env.MAIL_USER,
-        pass: process.env.MAIL_PASS,
+    try {
+
+        const mailConfigurations = {
+            from: `"Zeptronics" <${process.env.MAIL_USER}>`,
+
+            to: email,
+
+            subject: "Password Reset OTP",
+
+            html: `
+                <h2>Password Reset</h2>
+
+                <p>Your OTP for password reset is:</p>
+
+                <h1>${otp}</h1>
+
+                <p>
+                    Please use this OTP to reset your password.
+                </p>
+
+                <p>
+                    If you did not request a password reset,
+                    you can ignore this email.
+                </p>
+            `,
+        };
+
+        const info = await transporter.sendMail(mailConfigurations);
+
+        console.log("✅ OTP email sent:", info.messageId);
+
+        return {
+            success: true,
+            messageId: info.messageId,
+        };
+
+    } catch (error) {
+
+        console.error("❌ OTP email failed:", error);
+
+        return {
+            success: false,
+            error: error.message,
+        };
     }
-});
-
-const mailConfigurations = {
-
-    // It should be a string of sender/server email
-    from: process.env.MAIL_USER,
-    to: email,
-    subject: 'Password Reset OTP',
-    html: `<p>Your OTP for password reset is: <b>${otp}</b></p>`
 };
-
-// transporter.sendMail(mailConfigurations, function(error, info){
-//     if (error) throw Error(error);
-//     console.log('Email Sent Successfully');
-//     console.log(info);
-// });
-
-transporter.sendMail(mailConfigurations, function(error, info){
-    if (error) {
-        console.log(error);
-        return;
-    }
-    console.log('OTP Sent Successfully');
-});
-
-}

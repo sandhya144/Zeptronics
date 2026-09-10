@@ -20,7 +20,7 @@ export const isAuthenticated = async (req, res, next) => {
             if(error.name === "TokenExpiredError"){
                 return res.status(401).json({
                     success:false,
-                    message: "The registration token has expired"
+                    message: "Your access token has expired. Please login again."
                 })
             }  
             return res.status(401).json({

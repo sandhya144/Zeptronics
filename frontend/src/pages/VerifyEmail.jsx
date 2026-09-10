@@ -8,12 +8,14 @@ const VerifyEmail = () => {
     const navigate = useNavigate()
 
 const verifyEmail = async() => {
+  
    try{
      const res = await axios.post(`${import.meta.env.VITE_URL}/api/v1/user/verify`,{},{
       headers:{
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
       }
-     }) 
+     })
+
      if(res.data.success){
       setStatus('✅ Email Verified Successfully')
       setTimeout(()=> {

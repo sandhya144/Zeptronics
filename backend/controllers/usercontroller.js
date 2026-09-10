@@ -11,7 +11,6 @@ import cloudinary from '../utils/cloudinary.js';
 export const register = async(req, res)=>{
     try{
         // console.log("BODY =>", req.body);
-
         const{firstName, lastName, email, password} = req.body;
         if(!firstName || !lastName || !email || !password){
             return res.status(400).json({
@@ -20,6 +19,7 @@ export const register = async(req, res)=>{
             })
         }
 
+        //  check existng user 
         const user = await User.findOne({email})
         if(user){
             return res.status(400).json({
@@ -30,6 +30,7 @@ export const register = async(req, res)=>{
 
         // hashed a password using bcrypt
         const hashedPasswords = await bcrypt.hash(password,10);
+        // create user
         const newUser = await User.create({
             firstName,
             lastName,
@@ -37,30 +38,53 @@ export const register = async(req, res)=>{
             password: hashedPasswords
         })
 
+        // create verification token
         const token = jwt.sign({id: newUser._id}, process.env.SECRET_KEY, {expiresIn: '10m'})
-        verifyEmail(token, email)    // send email here
-        newUser.token = token 
+    
+        //Send verification email. Wait for email
+        const emailResult = await verifyEmail(token, email);
+
+        console.log("EMAIL RESULT:", emailResult);
+
+        // if email failed 
+        if (!emailResult.success) {
+            return res.status(500).json({
+                success: false,
+                message: "Verification email could not be sent",
+                error: emailResult.error
+            });
+        }
+
+        // save token 
+        newUser.token = token
+
         await newUser.save()
 
+        // response 
         return res.status(201).json({
             success: true,
-            message: "User registered Successfully",
+            message: "User registered Successfully. Verification email sent.",
             user: newUser,
         })
     } catch(error) {
+        console.error("register erro: ", error)
         return res.status(500).json({
             success: false,
             message: error.message
-        })
+        });
     }
 }
+
+
+
+
 
 export const verify = async(req, res)=>{
     try{
         // passing bearers token
         const authHeader = req.headers.authorization
         if(!authHeader || !authHeader.startsWith("Bearer ")){
-            res.status(400).json({
+            return res.status(400).json({
                 success: false,
                 message: 'Authorization token is missing or invalid'
             })
@@ -106,6 +130,7 @@ export const verify = async(req, res)=>{
     }
 }
 
+
 export const reverify = async (req, res) => {
     try{
         const {email} = req.body;
@@ -116,17 +141,28 @@ export const reverify = async (req, res) => {
                 message: "User not found",
             })
         }
-        const token = jwt.sign({id: User._id}, process.env.SECRET_KEY, {expiresIn: '10m'})
-        verifyEmail(token, email) 
+        const token = jwt.sign({id: user._id}, process.env.SECRET_KEY, {expiresIn: '10m'})
+       // Wait for email to be sent
+        const emailResult = await verifyEmail(token, email);
+
+        // Email sending failed
+        if (!emailResult.success) {
+            return res.status(500).json({
+                success: false,
+                message: "Failed to send verification email",
+                error: emailResult.error,
+            });
+        }
+
         user.token = token
         await user.save();
         return res.status(200).json({
             success: true,
             message: "Verification email sent again successfully",
-            token: user.token,
+            // token: user.token,
         })
     } catch (error) {
-          return register.status(500).json({
+          return res.status(500).json({
             success: false,
             message: error.message,
           })  
@@ -220,46 +256,83 @@ export const logout = async(req, res) => {
     }
 }
 
+// export const forgotPassword = async (req, res) => {
+//     try{
+//         // remove email by destructuring 
+//         const {email} = req.body;
+//         const user = await User.findOne({email})
+//         if(!user){
+//             return res.status(400).json({
+//                 success: false,
+//                 message: "User not found"
+//             })
+//         }
+
+//         //if user exist generate an otp of 6 digit as a string
+//         // math.random() --> hives a no bw 0 to 1
+//         // Math.random()*900000 --> multiply that no with 900000 giving random no b/w 0 to 899999.999
+//         // 100000 + Math.random()*900000 -->  add 100000 so the ranges shifts from  100000 to 999999.999
+//         // Math.floor --> removes the decimal part (rounds down)
+//         // to string --> converts a no to string to send sms or storing in db as text 
+
+//         const otp = Math.floor(100000 + Math.random()*900000).toString()
+
+//         // otp expiry
+//         const otpExpiry = new Date(Date.now() + 10*60*1000)  // 10 minutes
+//         user.otp = otp
+//         user.otpExpiry = otpExpiry
+    
+//         await user.save();
+//         await sendOTPMail (otp, email);
+//         return res.status(200).json({
+//             success: true,
+//             message: "OTP sent to email successfully."
+//         })
+
+//     } catch (error){
+//         return res.status(500).json({
+//             success: false,
+//             message: error.message
+//         })
+//     }
+// }
+
+
 export const forgotPassword = async (req, res) => {
-    try{
-        // remove email by destructuring 
-        const {email} = req.body;
-        const user = await User.findOne({email})
-        if(!user){
-            return res.status(400).json({
-                success: false,
-                message: "User not found"
-            })
+    try {
+        const { email } = req.body;
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(400).json({ success: false, message: "User not found" });
         }
 
-        //if user exist generate an otp of 6 digit as a string
-        // math.random() --> hives a no bw 0 to 1
-        // Math.random()*900000 --> multiply that no with 900000 giving random no b/w 0 to 899999.999
-        // 100000 + Math.random()*900000 -->  add 100000 so the ranges shifts from  100000 to 999999.999
-        // Math.floor --> removes the decimal part (rounds down)
-        // to string --> converts a no to string to send sms or storing in db as text 
+        const otp = Math.floor(100000 + Math.random() * 900000).toString();
+        const otpExpiry = new Date(Date.now() + 10 * 60 * 1000);
 
-        const otp = Math.floor(100000 + Math.random()*900000).toString()
+        const otpResult = await sendOTPMail(otp, email);
+        if (!otpResult.success) {
+            return res.status(500).json({
+                success: false,
+                message: "Failed to send OTP email",
+                error: otpResult.error
+            });
+        }
 
-        // otp expiry
-        const otpExpiry = new Date(Date.now() + 10*60*1000)  // 10 minutes
-        user.otp = otp
-        user.otpExpiry = otpExpiry
-    
+        user.otp = otp;
+        user.otpExpiry = otpExpiry;
         await user.save();
-        await sendOTPMail (otp, email);
+
         return res.status(200).json({
             success: true,
             message: "OTP sent to email successfully."
-        })
+        });
 
-    } catch (error){
-        return res.status(500).json({
-            success: false,
-            message: error.message
-        })
+    } catch (error) {
+        return res.status(500).json({ success: false, message: error.message });
     }
-}
+};
+
+
 
 export const verifyOTP = async (req, res) => {
     try{

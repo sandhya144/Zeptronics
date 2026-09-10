@@ -10,6 +10,10 @@ import cors from 'cors'
 import "./config/passport.js";
 
 
+import dns from 'node:dns';
+dns.setDefaultResultOrder('ipv4first');
+
+
 const app = express();   // express power usko app me dal diya 
 const PORT = process.env.PORT || 3000;    // port --> server listen 
 
@@ -23,7 +27,7 @@ app.use(express.json());
 
 const allowedOrigins = [
     'http://localhost:5173',              // local dev
-    process.env.FRONTEND_URL              // live frontend (set in Render env vars)
+    process.env.CLIENT_URL             // live frontend (set in Render env vars)
 ]
 
 app.use(cors({
