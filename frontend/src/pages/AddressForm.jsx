@@ -68,7 +68,7 @@ const handlePayment = async()=>{
     if(!data.success) return toast.error("Something Went Wrong")
 
     const options = {
-    key: import.meta.env.RAZORPAY_KEY_ID,
+    key: import.meta.env.VITE_RAZORPAY_KEY_ID,
     amount: data.order.amount,
     currency: data.order.currency,
     order_id: data.order.id, // Order ID from backend
