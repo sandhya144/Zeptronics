@@ -61,8 +61,8 @@
 <div align="center">
 
 [🚀 Features](#-what-it-does) · [🏗️ Architecture](#-architecture) · [⚙️ How It Works](#-how-it-works) 
-[💳 Payment Integration](#-payment-integration) · [📦 Installation](#-installation) · [📚 API Reference](#-api-reference) 
-[🛠️ Troubleshooting](#-troubleshooting) · [🤝 Contributing](#-contributing)
+· [💳 Payment Integration](#-payment-integration) · [📦 Installation](#-installation) · [📚 API Reference](#-api-reference) 
+· [🛠️ Troubleshooting](#-troubleshooting) · [🤝 Contributing](#-contributing)
 
 </div>
 
@@ -150,7 +150,6 @@ Every authenticated request passes through the JWT middleware before it ever rea
 
 # 📸 Screenshots
 
-![Home page](./frontend/src/assets/main%20page.png)
 ![Check Email](./frontend/src/assets/check%20email.png)
 ![Email](./frontend/src/assets/email.png)
 ![Email Verify](./frontend/src/assets/email%20verify.png)
