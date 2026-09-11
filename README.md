@@ -143,16 +143,18 @@ Every authenticated request passes through the JWT middleware before it ever rea
 | 💳 Payments | Razorpay |
 | 📧 Email | Nodemailer (Gmail SMTP) |
 
+# 📺 Working Demo
+
+[![Zeptronics Demo](./frontend/src/assets/thumbnail.png)](https://github.com/user-attachments/assets/bd8a1f7c-bb5b-4164-81ad-88f2de3962f2)
+
+
 # 📸 Screenshots
 
-
-```md
 ![Home page](./frontend/src/assets/main%20page.png)
-![P](./frontend/src/assets/check%20email.png)
-![P](./frontend/src/assets/email.png)
-![P](./frontend/src/assets/email%20verify.png)
-![P](./frontend/src/assets/prd%20img.png)
-```
+![Check Email](./frontend/src/assets/check%20email.png)
+![Email](./frontend/src/assets/email.png)
+![Email Verify](./frontend/src/assets/email%20verify.png)
+![Product Image](./frontend/src/assets/prd%20img.png)
 
 # ⚙️ How It Works
 
