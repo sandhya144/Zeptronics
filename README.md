@@ -470,6 +470,18 @@ RAZORPAY_SECRET=your_secret
 Confirm both values match the same mode (test or live) in the Razorpay dashboard.
 </details>
 
+# ⚠️ Known Issue: Email Verification on Signup
+
+*Currently, new user signups will fail with a "Verification email could not be sent" error in the deployed/production environment.*
+
+Cause: The backend uses Nodemailer with Gmail SMTP (smtp.gmail.com:587) to send verification emails. Most cloud hosting providers (Render, Railway, Vercel, etc.) block outbound SMTP ports (25, 465, 587) by default to prevent spam abuse, so the SMTP connection times out before it can reach Gmail's servers — regardless of correct credentials or config.
+
+Status: This works locally (where outbound SMTP isn't blocked) but not in the deployed environment.
+
+Planned fix: Migrate from SMTP to an HTTP-based transactional email API (e.g. Resend, SendGrid, AWS SES), which uses port 443 and isn't affected by this restriction.
+
+Workaround for testing: Run the backend locally to test the full signup flow, or contact the maintainer for a test account that bypasses email verification.
+
 
 # 🔒 Privacy & Safety Note
 
