@@ -20,10 +20,6 @@ const PORT = process.env.PORT || 3000;    // port --> server listen
 // middleware
 app.use(express.json());
 
-// app.use(cors({
-//     origin:'http://localhost:5173',   // frontend url
-//     credentials: true,
-// }))
 
 const allowedOrigins = [
     'http://localhost:5173',              // local dev
