@@ -68,7 +68,7 @@
 
 ---
 
-# 💡 The Problem
+# 💡 Overview
 
 Most e-commerce sites are built for "sell anything," which means electronics shoppers get generic categories, weak filtering, and a checkout flow that was never designed around technical products or admin-heavy catalogs. 
 
